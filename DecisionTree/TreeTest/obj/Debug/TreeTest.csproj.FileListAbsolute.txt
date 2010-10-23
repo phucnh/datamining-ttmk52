@@ -1,0 +1,7 @@
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TreeTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TreeTest\bin\Debug\TreeTest.dll
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TreeTest\bin\Debug\TreeTest.pdb
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TreeTest\bin\Debug\Tree.dll
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TreeTest\bin\Debug\Tree.pdb
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TreeTest\obj\Debug\TreeTest.dll
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TreeTest\obj\Debug\TreeTest.pdb

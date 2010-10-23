@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="33b8c690-1961-4da5-ad99-cafc850faa47" name="phuc@PHUC-PC 2010-10-19 01:08:41" runUser="phuc-PC\phuc" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="ba8e904a-397f-4b0e-9e06-2d4db7f038b1">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TestResults\phuc_PHUC-PC 2010-10-19 01_08_41">
+      <DeploymentItem filename="C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\Tree\bin\Debug\Tree.dll" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2010-10-19T01:08:41.4964341+07:00" queuing="2010-10-19T01:08:42.4934911+07:00" start="2010-10-19T01:08:42.6555004+07:00" finish="2010-10-19T01:08:43.0595235+07:00" />
+  <TestDefinitions>
+    <UnitTest name="ChildOfNodeIsNullAfterConstructor" storage="c:\users\phuc\documents\visual studio 2008\projects\c#\decisiontree\treetest\bin\debug\treetest.dll" id="16116405-3803-3df2-f6c0-d2c61cc1ea52">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="d0f34894-a172-4bd9-9283-dfe5a69f0c30" />
+      <TestMethod codeBase="C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TreeTest\bin\Debug\TreeTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TreeTest.UnitTest1, TreeTest" name="ChildOfNodeIsNullAfterConstructor" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="16116405-3803-3df2-f6c0-d2c61cc1ea52" executionId="d0f34894-a172-4bd9-9283-dfe5a69f0c30" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d0f34894-a172-4bd9-9283-dfe5a69f0c30" testId="16116405-3803-3df2-f6c0-d2c61cc1ea52" testName="ChildOfNodeIsNullAfterConstructor" computerName="PHUC-PC" duration="00:00:00.0348179" startTime="2010-10-19T01:08:42.7285046+07:00" endTime="2010-10-19T01:08:42.9875194+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsNull failed. node's child is not null after constructor</Message>
+          <StackTrace>   at TreeTest.UnitTest1.ChildOfNodeIsNullAfterConstructor() in C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TreeTest\UnitTest1.cs:line 69
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

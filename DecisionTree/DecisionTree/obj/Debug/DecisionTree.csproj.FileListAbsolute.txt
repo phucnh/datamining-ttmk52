@@ -1,0 +1,8 @@
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\DecisionTree\bin\Debug\DecisionTree.exe
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\DecisionTree\bin\Debug\DecisionTree.pdb
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\DecisionTree\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\DecisionTree\obj\Debug\DecisionTree.Form1.resources
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\DecisionTree\obj\Debug\DecisionTree.Properties.Resources.resources
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\DecisionTree\obj\Debug\DecisionTree.csproj.GenerateResource.Cache
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\DecisionTree\obj\Debug\DecisionTree.exe
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\DecisionTree\obj\Debug\DecisionTree.pdb
