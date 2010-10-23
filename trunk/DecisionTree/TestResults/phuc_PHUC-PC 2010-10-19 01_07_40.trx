@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="27a1439f-7e9e-4630-b894-6090bb59fcc2" name="phuc@PHUC-PC 2010-10-19 01:07:40" runUser="phuc-PC\phuc" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="ba8e904a-397f-4b0e-9e06-2d4db7f038b1">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TestResults\phuc_PHUC-PC 2010-10-19 01_07_40">
+      <DeploymentItem filename="C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\Tree\bin\Debug\Tree.dll" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2010-10-19T01:07:40.8039627+07:00" queuing="2010-10-19T01:07:41.7980195+07:00" start="2010-10-19T01:07:42.0060314+07:00" finish="2010-10-19T01:07:42.3830530+07:00" />
+  <TestDefinitions>
+    <UnitTest name="ChildOfNodeIsNullAfterConstructor" storage="c:\users\phuc\documents\visual studio 2008\projects\c#\decisiontree\treetest\bin\debug\treetest.dll" id="16116405-3803-3df2-f6c0-d2c61cc1ea52">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="04925b90-f539-41a9-9eaa-fbe732b60e8a" />
+      <TestMethod codeBase="C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\TreeTest\bin\Debug\TreeTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TreeTest.UnitTest1, TreeTest" name="ChildOfNodeIsNullAfterConstructor" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="16116405-3803-3df2-f6c0-d2c61cc1ea52" executionId="04925b90-f539-41a9-9eaa-fbe732b60e8a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="04925b90-f539-41a9-9eaa-fbe732b60e8a" testId="16116405-3803-3df2-f6c0-d2c61cc1ea52" testName="ChildOfNodeIsNullAfterConstructor" computerName="PHUC-PC" duration="00:00:00.0166936" startTime="2010-10-19T01:07:42.0790356+07:00" endTime="2010-10-19T01:07:42.3170492+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

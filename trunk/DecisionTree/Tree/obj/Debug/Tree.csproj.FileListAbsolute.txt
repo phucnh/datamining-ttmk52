@@ -1,0 +1,5 @@
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\Tree\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\Tree\bin\Debug\Tree.dll
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\Tree\bin\Debug\Tree.pdb
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\Tree\obj\Debug\Tree.dll
+C:\Users\phuc\Documents\Visual Studio 2008\Projects\C#\DecisionTree\Tree\obj\Debug\Tree.pdb
