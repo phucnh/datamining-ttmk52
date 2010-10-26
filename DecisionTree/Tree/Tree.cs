@@ -10,8 +10,25 @@ namespace Tree
         private Node root;
         private List<Node> _childNodes;
         private List<Branch> _branches;
-        private int nodeCount;
 
+        public Tree()
+        {
+            root = null;
+            _childNodes = null;
+            _branches = null;
+        }
+
+        public int ChildNumbers
+        {
+            get
+            {
+                if (_childNodes == null)
+                {
+                    return 0;
+                }
+                return _childNodes.Count();
+            }
+        }
 
         public List<Node> ChildNodes
         {
@@ -25,26 +42,21 @@ namespace Tree
             set { root = value; }
         }
 
-        public int NodeCount
-        {
-            get { return nodeCount; }
-            set { nodeCount = value; }
-        }
-
         public Tree(Node root)
         {
             Root = root;
             ChildNodes = new List<Node>();
-            NodeCount = 1;
+        }
+
+        public List<Branch> Branches
+        {
+            get { return _branches; }
+            set { _branches = value; }
         }
 
         public void AddNode(Node _node)
         {
             ChildNodes.Add(_node);
-            if (_node.Childs != null)
-                NodeCount += _node.Childs.Count + 1;
-            else
-                NodeCount++;
         }
 
         public Node RemoveNode(Node _node)
@@ -55,9 +67,23 @@ namespace Tree
                     return node == _node;
                 }) != null)
                 ChildNodes.Remove(_node);
-            NodeCount--;
-
             return _node;
+        }
+
+        public void AddBranch(Branch _branch)
+        {
+            Branches.Add(_branch);
+        }
+
+        public Branch RemoveBranch(Branch _branch)
+        {
+            if (Branches.Find(
+                delegate(Branch branch)
+                {
+                    return branch == _branch;
+                }) != null)
+                Branches.Remove(_branch);
+            return _branch;
         }
     }
 }
