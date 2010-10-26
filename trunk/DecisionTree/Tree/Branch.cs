@@ -21,11 +21,11 @@ namespace Tree
             set { childNode = value; }
         }
 
-        private string _value;
-        public string Value
+        private string branchValue;
+        public string BranchValue
         {
-            get { return _value; }
-            set { _value = value; }
+            get { return branchValue; }
+            set { branchValue = value; }
         }
 
         private string _operator;
@@ -35,11 +35,18 @@ namespace Tree
             set { _operator = value; }
         }
 
-        Branch(Node parentNode, Node childNode, string _value)
+        public Branch()
+        {
+            parentNode = null;
+            childNode = null;
+            branchValue = string.Empty;
+        }
+
+        public Branch(Node parentNode, Node childNode, string _branchValue)
         {
             this.parentNode = parentNode;
             this.childNode = childNode;
-            this._value = _value;
+            this.branchValue = _branchValue;
         }
     }
 }

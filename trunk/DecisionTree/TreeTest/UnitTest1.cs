@@ -70,5 +70,14 @@ namespace TreeTest
             // TODO: Add test logic	here
             //
         }
+        [TestMethod]
+        public void CreateTreeTest()
+        {
+            Tree.Tree tree = new Tree.Tree();
+            Tree.Node root = new Tree.Node();
+            tree.AddNode(root);
+
+            Assert.AreEqual(1, tree.ChildNodes.Count);
+        }
     }
 }
