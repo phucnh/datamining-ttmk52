@@ -56,7 +56,15 @@ namespace Tree
 
         public void AddNode(Node _node)
         {
-            ChildNodes.Add(_node);
+            if (ChildNodes == null)
+            {
+                ChildNodes = new List<Node>();
+                ChildNodes.Add(_node);
+            }
+            else
+            {
+                ChildNodes.Add(_node);
+            }
         }
 
         public Node RemoveNode(Node _node)
@@ -72,7 +80,15 @@ namespace Tree
 
         public void AddBranch(Branch _branch)
         {
-            Branches.Add(_branch);
+            if (Branches == null)
+            {
+                Branches = new List<Branch>();
+                Branches.Add(_branch);
+            }
+            else
+            {
+                Branches.Add(_branch);
+            }
         }
 
         public Branch RemoveBranch(Branch _branch)
