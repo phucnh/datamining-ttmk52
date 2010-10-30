@@ -8,8 +8,8 @@
     <ProjectGuid>{2C387A52-6B36-4236-A358-9E909E81B74A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AIDatabase</RootNamespace>
-    <AssemblyName>AIDatabase</AssemblyName>
+    <RootNamespace>AIDT.AIDatabase</RootNamespace>
+    <AssemblyName>AIDT.AIDatabase</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

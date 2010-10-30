@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="AIProject" Class="EntitiesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=PHUC-PC;Initial Catalog=AIProject;Persist Security Info=True;User ID=sa" SettingsObjectName="AIDatabase.Properties.Settings" SettingsPropertyName="AIProjectConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PHUC-PC;Initial Catalog=AIProject;Persist Security Info=True;User ID=sa" SettingsObjectName="AIDT.AIDatabase.Properties.Settings" SettingsPropertyName="AIProjectConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ClassArrangement" Member="ClassArrangements">
     <Type Name="ClassArrangement">
       <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
