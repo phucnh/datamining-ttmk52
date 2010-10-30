@@ -1,0 +1,37 @@
+Tree MakeTreeWithID3(DataTable dataTable)
+{
+	if ( no colum in dataTable) return null;
+	
+	Tree tree;
+	tree = CreateTree(dataTable); //null if can not create
+	
+	foreach(childNode in tree.ChilldNodes)
+	{
+		if (childNode != result); //result la 1 ket qua chinh xac nao do do nguoi dung tu define
+		{
+			Tree treeTemp = MakeTreeWithID3(dataTable - (childNode's parentColumsName and All rows has value like chidnode and root operator and value ));
+			childNode = treeTemp.Root;
+		}
+	}
+	
+	return tree;
+}
+
+Tree CreateTree(DataTable dataTable)
+{
+	if (no column in dataTable) return null;
+	
+	Tree tree;
+	Node root = CalculateRoot();
+	
+	if (root == null) return null;
+	
+	tree = CreateNewTree(root);
+	
+	if (tree == null) return null;
+	AddChildNodeToTree(tree);
+	
+	return tree;
+}
+
+Cac ham CreateNewTree() va AddChildNodeToTree ai khong hieu thi hoi Trung beo nhe.
