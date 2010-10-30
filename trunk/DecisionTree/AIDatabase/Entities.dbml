@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="AIProject" Class="EntitiesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PHUC-PC;Initial Catalog=AIProject;Persist Security Info=True;User ID=sa" SettingsObjectName="AIDatabase.Properties.Settings" SettingsPropertyName="AIProjectConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ClassArrangement" Member="ClassArrangements">
+    <Type Name="ClassArrangement">
+      <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClassId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ClassDetail_ClassArrangement" Member="ClassDetail" ThisKey="ClassId" OtherKey="ClassId" Type="ClassDetail" IsForeignKey="true" />
+      <Association Name="CustomerDetail_ClassArrangement" Member="CustomerDetail" ThisKey="CustomerId" OtherKey="CustomerId" Type="CustomerDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClassDetails" Member="ClassDetails">
+    <Type Name="ClassDetail">
+      <Column Name="ClassId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClassName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ClassTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CourseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TeacherId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ClassDetail_ClassArrangement" Member="ClassArrangements" ThisKey="ClassId" OtherKey="ClassId" Type="ClassArrangement" />
+      <Association Name="ClassTime_ClassDetail" Member="ClassTime1" ThisKey="ClassTime" OtherKey="ClassTimeId" Type="ClassTime" IsForeignKey="true" />
+      <Association Name="CourseDetail_ClassDetail" Member="CourseDetail" ThisKey="CourseId" OtherKey="CourseId" Type="CourseDetail" IsForeignKey="true" />
+      <Association Name="TeacherDetail_ClassDetail" Member="TeacherDetail" ThisKey="TeacherId" OtherKey="TeacherId" Type="TeacherDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClassTime" Member="ClassTimes">
+    <Type Name="ClassTime">
+      <Column Name="ClassTimeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TimeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Association Name="ClassTime_ClassDetail" Member="ClassDetails" ThisKey="ClassTimeId" OtherKey="ClassTime" Type="ClassDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CourseCertificate" Member="CourseCertificates">
+    <Type Name="CourseCertificate">
+      <Column Name="CertificateId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CertificateName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="CourseCertificate_CourseDetail" Member="CourseDetails" ThisKey="CertificateId" OtherKey="CourseCertificate" Type="CourseDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CourseDetails" Member="CourseDetails">
+    <Type Name="CourseDetail">
+      <Column Name="CourseId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CourseName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CourseCertificate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CourseFee" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CourseGroup" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CourseDetail_ClassDetail" Member="ClassDetails" ThisKey="CourseId" OtherKey="CourseId" Type="ClassDetail" />
+      <Association Name="CourseCertificate_CourseDetail" Member="CourseCertificate1" ThisKey="CourseCertificate" OtherKey="CertificateId" Type="CourseCertificate" IsForeignKey="true" />
+      <Association Name="CourseGroup_CourseDetail" Member="CourseGroup1" ThisKey="CourseGroup" OtherKey="CourseGroupId" Type="CourseGroup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CourseGroup" Member="CourseGroups">
+    <Type Name="CourseGroup">
+      <Column Name="CourseGroupId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Association Name="CourseGroup_CourseDetail" Member="CourseDetails" ThisKey="CourseGroupId" OtherKey="CourseGroup" Type="CourseDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerDetails" Member="CustomerDetails">
+    <Type Name="CustomerDetail">
+      <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Birthday" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OccupationTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CustomerDetail_ClassArrangement" Member="ClassArrangements" ThisKey="CustomerId" OtherKey="CustomerId" Type="ClassArrangement" />
+      <Association Name="OccupationType_CustomerDetail" Member="OccupationType" ThisKey="OccupationTypeId" OtherKey="OccupationTypeId" Type="OccupationType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OccupationType" Member="OccupationTypes">
+    <Type Name="OccupationType">
+      <Column Name="OccupationTypeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OccupationName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Association Name="OccupationType_CustomerDetail" Member="CustomerDetails" ThisKey="OccupationTypeId" OtherKey="OccupationTypeId" Type="CustomerDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TeacherDetails" Member="TeacherDetails">
+    <Type Name="TeacherDetail">
+      <Column Name="TeacherId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TeacherName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TeacherCertificate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Association Name="TeacherDetail_ClassDetail" Member="ClassDetails" ThisKey="TeacherId" OtherKey="TeacherId" Type="ClassDetail" />
+    </Type>
+  </Table>
+</Database>
