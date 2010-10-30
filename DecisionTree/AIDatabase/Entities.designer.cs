@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AIDatabase
+namespace AIDT.AIDatabase
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -60,7 +60,7 @@ namespace AIDatabase
     #endregion
 		
 		public EntitiesDataContext() : 
-				base(global::AIDatabase.Properties.Settings.Default.AIProjectConnectionString, mappingSource)
+				base(global::AIDT.AIDatabase.Properties.Settings.Default.AIProjectConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
