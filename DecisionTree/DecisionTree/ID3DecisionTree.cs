@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace DecisionTree
 {
-    class DecisionTree
+    public class ID3DecisionTree
     {
     }
 }

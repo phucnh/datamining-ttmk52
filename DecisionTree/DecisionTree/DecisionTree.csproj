@@ -45,8 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DecisionTree.cs" />
+    <Compile Include="ID3DecisionTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AIDatabase\AIDatabase.csproj">
+      <Project>{2C387A52-6B36-4236-A358-9E909E81B74A}</Project>
+      <Name>AIDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ID3\ID3.csproj">
+      <Project>{87633BE2-905E-468D-BD7B-739F46CD9BAE}</Project>
+      <Name>ID3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tree\Tree.csproj">
+      <Project>{B67A7674-C139-4873-BFFF-8BD89613D316}</Project>
+      <Name>Tree</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
