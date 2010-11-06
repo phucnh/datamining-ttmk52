@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ID3
+namespace AIDT.ID3
 {
     public class ID3Algorithm
     {
-        public double CalculateInformationFunction(double p, double n)
+        public static double CalculateInformationFunction(double p, double n)
         {
             return -(((double)p / (p + n)) * (Math.Log((double)p / (p + n), 2)) + ((double)n / (p + n)) * (Math.Log((double)n / (p + n), 2)));
         }
 
-        public double CalculateEntropyFunction(int[,] propertyDataSet)
+        public static double CalculateEntropyFunction(int[,] propertyDataSet)
         {
             int totalItem = 0;
             double finalEntropy = 0;
@@ -40,7 +40,7 @@ namespace ID3
             return finalEntropy;
         }
 
-        public double CalculateGainFunction(int[,] propertyDataSet)
+        public static double CalculateGainFunction(int[,] propertyDataSet)
         {
             int i = 0;
             int totalPi = 0;
