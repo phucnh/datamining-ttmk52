@@ -67,6 +67,20 @@ namespace AIDT.Tree
             }
         }
 
+        public void AddNodeToRoot(Node _node)
+        {
+            if (ChildNodes == null)
+            {
+                ChildNodes = new List<Node>();
+                ChildNodes.Add(_node);
+            }
+            else
+            {
+                ChildNodes.Add(_node);
+            }
+            this.Root.AddChildNode(_node);
+        }
+
         public Node RemoveNode(Node _node)
         {
             if (ChildNodes.Find(

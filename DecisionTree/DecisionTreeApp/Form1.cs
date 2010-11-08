@@ -41,11 +41,11 @@ namespace DecisionTreeApp
             AIDT.Tree.Node node5 = new AIDT.Tree.Node();
             node5.NodeName = "node5";
 
-            AIDT.Tree.Node node1 = new AIDT.Tree.Node("node1", null, null, null);
+            AIDT.Tree.Node node1 = new AIDT.Tree.Node("node1", null, null ,null, null);
             node1.AddChildNode(node3);
             node1.AddChildNode(node4);
 
-            AIDT.Tree.Node node2 = new AIDT.Tree.Node("node2", null, null, null);
+            AIDT.Tree.Node node2 = new AIDT.Tree.Node("node2", null,null, null, null);
             node2.AddChildNode(node5);
 
             List<AIDT.Tree.Node> listChildNode = new List<AIDT.Tree.Node>();
@@ -70,7 +70,6 @@ namespace DecisionTreeApp
 
         public TreeNode GetListNode(AIDT.Tree.Node root)
         {
-            TreeNode tempNode = new TreeNode();
             if (root != null)
             {
                 result.Add(root);
@@ -83,7 +82,7 @@ namespace DecisionTreeApp
                 {
                     foreach (AIDT.Tree.Node childNode in root.Childs)
                     {
-                        GetListNode(childNode);
+                        TreeNode tempNode = GetListNode(childNode);
                         if (!result.Contains(childNode))
                         {
                             result.Add(childNode);
@@ -91,8 +90,9 @@ namespace DecisionTreeApp
                             //tempNode.Text = childNode.NodeName;
                             //currentParentNode.Nodes.Add(tempNode);
                         }
-                        tempNode.Name = childNode.NodeName;
-                        tempNode.Text = childNode.NodeName;
+                        if (tempNode == null) continue;
+                        //tempNode.Name = childNode.NodeName;
+                        //tempNode.Text = childNode.NodeName;
                         //tempNode.Expanded = true;
                         currentParentNode.Nodes.Add(tempNode);
                     }
