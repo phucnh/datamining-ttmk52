@@ -9,7 +9,7 @@ namespace AIDT.Tree
     {
         private string nodeName;
         private string nodeValue;
-        
+
         private Node parent;
         private List<Node> childs;
 
@@ -57,6 +57,10 @@ namespace AIDT.Tree
         public void AddChildNode(Node _node)
         {
             _node.Parent = this;
+            if (Childs == null)
+            {
+                Childs = new List<Node>();
+            }
             Childs.Add(_node);
         }
 
