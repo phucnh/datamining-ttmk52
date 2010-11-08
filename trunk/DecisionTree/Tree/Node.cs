@@ -9,7 +9,8 @@ namespace AIDT.Tree
     {
         private string nodeName;
         private string nodeValue;
-
+        private int[] resultValue; //Phuc add 20101108 -- De de dang kiem tra va tich hop du lieu
+        
         private Node parent;
         private List<Node> childs;
 
@@ -24,6 +25,14 @@ namespace AIDT.Tree
             get { return nodeValue; }
             set { nodeValue = value; }
         }
+
+        //Phuc add 20101108 -- De de dang kiem tra va tich hop du lieu
+        public int[] ResultValue
+        {
+            get { return resultValue; }
+            set { resultValue = value; }
+        }
+        //End phuc add 20101108
 
         public List<Node> Childs
         {
@@ -46,10 +55,11 @@ namespace AIDT.Tree
             // TODO: Implement code in here
         }
 
-        public Node(string _nodeName, string _nodeValue, Node _parent, List<Node> _childs)
+        public Node(string _nodeName, string _nodeValue, int[] _resultValue, Node _parent, List<Node> _childs)
         {
             nodeName = _nodeName;
             nodeValue = _nodeValue;
+            resultValue = _resultValue;
             parent = _parent;
             childs = _childs;
         }
