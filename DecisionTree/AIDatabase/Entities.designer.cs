@@ -33,6 +33,9 @@ namespace AIDT.AIDatabase
     partial void InsertClassArrangement(ClassArrangement instance);
     partial void UpdateClassArrangement(ClassArrangement instance);
     partial void DeleteClassArrangement(ClassArrangement instance);
+    partial void InsertOccupationType(OccupationType instance);
+    partial void UpdateOccupationType(OccupationType instance);
+    partial void DeleteOccupationType(OccupationType instance);
     partial void InsertClassDetail(ClassDetail instance);
     partial void UpdateClassDetail(ClassDetail instance);
     partial void DeleteClassDetail(ClassDetail instance);
@@ -51,9 +54,6 @@ namespace AIDT.AIDatabase
     partial void InsertCustomerDetail(CustomerDetail instance);
     partial void UpdateCustomerDetail(CustomerDetail instance);
     partial void DeleteCustomerDetail(CustomerDetail instance);
-    partial void InsertOccupationType(OccupationType instance);
-    partial void UpdateOccupationType(OccupationType instance);
-    partial void DeleteOccupationType(OccupationType instance);
     partial void InsertTeacherDetail(TeacherDetail instance);
     partial void UpdateTeacherDetail(TeacherDetail instance);
     partial void DeleteTeacherDetail(TeacherDetail instance);
@@ -94,6 +94,14 @@ namespace AIDT.AIDatabase
 			get
 			{
 				return this.GetTable<ClassArrangement>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OccupationType> OccupationTypes
+		{
+			get
+			{
+				return this.GetTable<OccupationType>();
 			}
 		}
 		
@@ -142,14 +150,6 @@ namespace AIDT.AIDatabase
 			get
 			{
 				return this.GetTable<CustomerDetail>();
-			}
-		}
-		
-		public System.Data.Linq.Table<OccupationType> OccupationTypes
-		{
-			get
-			{
-				return this.GetTable<OccupationType>();
 			}
 		}
 		
@@ -354,6 +354,144 @@ namespace AIDT.AIDatabase
 		}
 	}
 	
+	[Table(Name="dbo.OccupationType")]
+	public partial class OccupationType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _OccupationTypeId;
+		
+		private string _OccupationName;
+		
+		private string _Note;
+		
+		private EntitySet<CustomerDetail> _CustomerDetails;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOccupationTypeIdChanging(int value);
+    partial void OnOccupationTypeIdChanged();
+    partial void OnOccupationNameChanging(string value);
+    partial void OnOccupationNameChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    #endregion
+		
+		public OccupationType()
+		{
+			this._CustomerDetails = new EntitySet<CustomerDetail>(new Action<CustomerDetail>(this.attach_CustomerDetails), new Action<CustomerDetail>(this.detach_CustomerDetails));
+			OnCreated();
+		}
+		
+		[Column(Storage="_OccupationTypeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int OccupationTypeId
+		{
+			get
+			{
+				return this._OccupationTypeId;
+			}
+			set
+			{
+				if ((this._OccupationTypeId != value))
+				{
+					this.OnOccupationTypeIdChanging(value);
+					this.SendPropertyChanging();
+					this._OccupationTypeId = value;
+					this.SendPropertyChanged("OccupationTypeId");
+					this.OnOccupationTypeIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_OccupationName", DbType="NVarChar(50)")]
+		public string OccupationName
+		{
+			get
+			{
+				return this._OccupationName;
+			}
+			set
+			{
+				if ((this._OccupationName != value))
+				{
+					this.OnOccupationNameChanging(value);
+					this.SendPropertyChanging();
+					this._OccupationName = value;
+					this.SendPropertyChanged("OccupationName");
+					this.OnOccupationNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Note", DbType="NVarChar(1024)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[Association(Name="OccupationType_CustomerDetail", Storage="_CustomerDetails", ThisKey="OccupationTypeId", OtherKey="OccupationTypeId")]
+		public EntitySet<CustomerDetail> CustomerDetails
+		{
+			get
+			{
+				return this._CustomerDetails;
+			}
+			set
+			{
+				this._CustomerDetails.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CustomerDetails(CustomerDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.OccupationType = this;
+		}
+		
+		private void detach_CustomerDetails(CustomerDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.OccupationType = null;
+		}
+	}
+	
 	[Table(Name="dbo.ClassDetails")]
 	public partial class ClassDetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -403,7 +541,7 @@ namespace AIDT.AIDatabase
 			OnCreated();
 		}
 		
-		[Column(Storage="_ClassId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[Column(Storage="_ClassId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int ClassId
 		{
 			get
@@ -695,7 +833,7 @@ namespace AIDT.AIDatabase
 			OnCreated();
 		}
 		
-		[Column(Storage="_ClassTimeId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[Column(Storage="_ClassTimeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int ClassTimeId
 		{
 			get
@@ -829,7 +967,7 @@ namespace AIDT.AIDatabase
 			OnCreated();
 		}
 		
-		[Column(Storage="_CertificateId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[Column(Storage="_CertificateId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int CertificateId
 		{
 			get
@@ -961,7 +1099,7 @@ namespace AIDT.AIDatabase
 			OnCreated();
 		}
 		
-		[Column(Storage="_CourseId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[Column(Storage="_CourseId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int CourseId
 		{
 			get
@@ -1215,7 +1353,7 @@ namespace AIDT.AIDatabase
 			OnCreated();
 		}
 		
-		[Column(Storage="_CourseGroupId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[Column(Storage="_CourseGroupId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int CourseGroupId
 		{
 			get
@@ -1331,7 +1469,7 @@ namespace AIDT.AIDatabase
 		
 		private string _Name;
 		
-		private string _Birthday;
+		private System.Nullable<System.DateTime> _Birthday;
 		
 		private System.Nullable<int> _OccupationTypeId;
 		
@@ -1347,7 +1485,7 @@ namespace AIDT.AIDatabase
     partial void OnCustomerIdChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnBirthdayChanging(string value);
+    partial void OnBirthdayChanging(System.Nullable<System.DateTime> value);
     partial void OnBirthdayChanged();
     partial void OnOccupationTypeIdChanging(System.Nullable<int> value);
     partial void OnOccupationTypeIdChanged();
@@ -1360,7 +1498,7 @@ namespace AIDT.AIDatabase
 			OnCreated();
 		}
 		
-		[Column(Storage="_CustomerId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[Column(Storage="_CustomerId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int CustomerId
 		{
 			get
@@ -1400,8 +1538,8 @@ namespace AIDT.AIDatabase
 			}
 		}
 		
-		[Column(Storage="_Birthday", DbType="NVarChar(50)")]
-		public string Birthday
+		[Column(Storage="_Birthday", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Birthday
 		{
 			get
 			{
@@ -1524,144 +1662,6 @@ namespace AIDT.AIDatabase
 		}
 	}
 	
-	[Table(Name="dbo.OccupationType")]
-	public partial class OccupationType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _OccupationTypeId;
-		
-		private string _OccupationName;
-		
-		private string _Note;
-		
-		private EntitySet<CustomerDetail> _CustomerDetails;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnOccupationTypeIdChanging(int value);
-    partial void OnOccupationTypeIdChanged();
-    partial void OnOccupationNameChanging(string value);
-    partial void OnOccupationNameChanged();
-    partial void OnNoteChanging(string value);
-    partial void OnNoteChanged();
-    #endregion
-		
-		public OccupationType()
-		{
-			this._CustomerDetails = new EntitySet<CustomerDetail>(new Action<CustomerDetail>(this.attach_CustomerDetails), new Action<CustomerDetail>(this.detach_CustomerDetails));
-			OnCreated();
-		}
-		
-		[Column(Storage="_OccupationTypeId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int OccupationTypeId
-		{
-			get
-			{
-				return this._OccupationTypeId;
-			}
-			set
-			{
-				if ((this._OccupationTypeId != value))
-				{
-					this.OnOccupationTypeIdChanging(value);
-					this.SendPropertyChanging();
-					this._OccupationTypeId = value;
-					this.SendPropertyChanged("OccupationTypeId");
-					this.OnOccupationTypeIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_OccupationName", DbType="NVarChar(50)")]
-		public string OccupationName
-		{
-			get
-			{
-				return this._OccupationName;
-			}
-			set
-			{
-				if ((this._OccupationName != value))
-				{
-					this.OnOccupationNameChanging(value);
-					this.SendPropertyChanging();
-					this._OccupationName = value;
-					this.SendPropertyChanged("OccupationName");
-					this.OnOccupationNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Note", DbType="NVarChar(1024)")]
-		public string Note
-		{
-			get
-			{
-				return this._Note;
-			}
-			set
-			{
-				if ((this._Note != value))
-				{
-					this.OnNoteChanging(value);
-					this.SendPropertyChanging();
-					this._Note = value;
-					this.SendPropertyChanged("Note");
-					this.OnNoteChanged();
-				}
-			}
-		}
-		
-		[Association(Name="OccupationType_CustomerDetail", Storage="_CustomerDetails", ThisKey="OccupationTypeId", OtherKey="OccupationTypeId")]
-		public EntitySet<CustomerDetail> CustomerDetails
-		{
-			get
-			{
-				return this._CustomerDetails;
-			}
-			set
-			{
-				this._CustomerDetails.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CustomerDetails(CustomerDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.OccupationType = this;
-		}
-		
-		private void detach_CustomerDetails(CustomerDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.OccupationType = null;
-		}
-	}
-	
 	[Table(Name="dbo.TeacherDetails")]
 	public partial class TeacherDetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1698,7 +1698,7 @@ namespace AIDT.AIDatabase
 			OnCreated();
 		}
 		
-		[Column(Storage="_TeacherId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[Column(Storage="_TeacherId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int TeacherId
 		{
 			get
