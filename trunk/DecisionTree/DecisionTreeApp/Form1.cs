@@ -9,9 +9,11 @@ using System.Windows.Forms;
 using AIDT.Tree;
 using DevComponents.Tree;
 
+
+
 namespace DecisionTreeApp
 {
-    public partial class Form1 : Form
+    public partial class Form1 : DevComponents.DotNetBar.Office2007Form
     {
         public Form1()
         {
@@ -26,6 +28,54 @@ namespace DecisionTreeApp
             //AIDT.Tree.Node rootNode = test.Root;
             //GetListNode(rootNode);
             //DrawTree();
+
+        }
+
+        void TestMethod()
+        {
+            System.Data.DataTable _testDataSet = new System.Data.DataTable();
+            _testDataSet.Columns.Add("HairColor");
+            _testDataSet.Columns.Add("Height");
+            _testDataSet.Columns.Add("Weight");
+            _testDataSet.Columns.Add("Use");
+            _testDataSet.Columns.Add("Result");
+
+            string[] tempString = { "Den", "Tam thuoc", "Nhe", "Khong", "true" };
+            _testDataSet.Rows.Add(tempString);
+            tempString = new string[5] { "Den", "Cao", "Vua phai", "Co", "false" };
+            _testDataSet.Rows.Add(tempString);
+            tempString = new string[5] { "Ram", "Thap", "Vua phai", "Co", "false" };
+            _testDataSet.Rows.Add(tempString);
+            tempString = new string[5] { "Den", "Thap", "Vua phai", "Khong", "true" };
+            _testDataSet.Rows.Add(tempString);
+            tempString = new string[5] { "Bac", "Tam thuoc", "Nang", "Khong", "true" };
+            _testDataSet.Rows.Add(tempString);
+            tempString = new string[5] { "Ram", "Cao", "Nang", "Khong", "false" };
+            _testDataSet.Rows.Add(tempString);
+            tempString = new string[5] { "Ram", "Tam thuoc", "Nang", "Khong", "false" };
+            _testDataSet.Rows.Add(tempString);
+            tempString = new string[5] { "Den", "Thap", "Nhe", "Co", "false" };
+            _testDataSet.Rows.Add(tempString);
+
+            AIDT.Tree.Node node = new AIDT.Tree.Node();
+            DecisionTree.ID3DecisionTree testDTree = new DecisionTree.ID3DecisionTree();
+            testDTree.ResultName = "Result";
+            testDTree.ResultToString = "true";
+            //node = testDTree.CalculateRoot(_testDataSet);
+            testDTree.GetTreeWithID3(_testDataSet);
+
+            //AIDT.Tree.Node rootNode = test.Root;
+            //TreeNode node = GetListNode(rootNode);
+            DevComponents.Tree.Node treeGXNode = GetListNode(testDTree.DTree.Root);
+            this.node2.Nodes.Add(treeGXNode);
+            //this.node2.Visible = false;
+            //this.node2.Text = treeGXNode.Text;
+            //this.node2 = treeGXNode;
+            //foreach (DevComponents.Tree.Node childNode in treeGXNode.Nodes)
+            //for (int i = 0; i < treeGXNode.Nodes.Count; i++)
+            //    this.node2.Nodes.Add(treeGXNode.Nodes[i]);
+
+
         }
 
         public Tree TestTree()
@@ -41,11 +91,11 @@ namespace DecisionTreeApp
             AIDT.Tree.Node node5 = new AIDT.Tree.Node();
             node5.NodeName = "node5";
 
-            AIDT.Tree.Node node1 = new AIDT.Tree.Node("node1", null, null ,null, null);
+            AIDT.Tree.Node node1 = new AIDT.Tree.Node("node1", null, null, null, null);
             node1.AddChildNode(node3);
             node1.AddChildNode(node4);
 
-            AIDT.Tree.Node node2 = new AIDT.Tree.Node("node2", null,null, null, null);
+            AIDT.Tree.Node node2 = new AIDT.Tree.Node("node2", null, null, null, null);
             node2.AddChildNode(node5);
 
             List<AIDT.Tree.Node> listChildNode = new List<AIDT.Tree.Node>();
@@ -68,21 +118,32 @@ namespace DecisionTreeApp
 
         List<DevComponents.Tree.Node> atempListNode = new List<DevComponents.Tree.Node>();
 
-        public TreeNode GetListNode(AIDT.Tree.Node root)
+        public DevComponents.Tree.Node GetListNode(AIDT.Tree.Node root)
         {
             if (root != null)
             {
                 result.Add(root);
-                TreeNode currentParentNode = new TreeNode();
+                DevComponents.Tree.Node currentParentNode = new DevComponents.Tree.Node();
                 currentParentNode.Name = root.NodeName;
-                currentParentNode.Text = root.NodeName;
-                //currentParentNode.Expanded = true;
-                
+                StringBuilder _format = new StringBuilder(String.Empty);
+                _format.AppendFormat("( {0} ) {1} ", root.NodeValue, root.NodeName);
+                //if (root.ResultValue == null)
+                //    _format.AppendFormat("( {0} ) {1} ", root.NodeValue, root.NodeName);
+                //else
+                //    _format.AppendFormat("( {0} ) {1}. Result {3}. Native Result {4} ",
+                //        root.NodeValue, 
+                //        root.NodeName,
+                //        root.ResultValue[0].ToString(),
+                //        root.ResultValue[1].ToString());
+
+                currentParentNode.Text = _format.ToString();
+                currentParentNode.Expanded = true;
+
                 if ((root.Childs != null) && (root.Childs.Count != 0))
                 {
                     foreach (AIDT.Tree.Node childNode in root.Childs)
                     {
-                        TreeNode tempNode = GetListNode(childNode);
+                        DevComponents.Tree.Node tempNode = GetListNode(childNode);
                         if (!result.Contains(childNode))
                         {
                             result.Add(childNode);
@@ -93,7 +154,7 @@ namespace DecisionTreeApp
                         if (tempNode == null) continue;
                         //tempNode.Name = childNode.NodeName;
                         //tempNode.Text = childNode.NodeName;
-                        //tempNode.Expanded = true;
+                        tempNode.Expanded = true;
                         currentParentNode.Nodes.Add(tempNode);
                     }
                 }
@@ -103,7 +164,7 @@ namespace DecisionTreeApp
                 //}
                 return currentParentNode;
             }
-            return null ;
+            return null;
         }
 
         //public void GetListNode(AIDT.Tree.Node root)
@@ -163,19 +224,13 @@ namespace DecisionTreeApp
         {
             Tree test = TestTree();
             AIDT.Tree.Node rootNode = test.Root;
-            TreeNode node = GetListNode(rootNode);
-            this.treeView1.Nodes.Add(node);
+            TestMethod();
+            //TreeNode node = GetListNode(rootNode);
+            //DevComponents.Tree.Node node = GetListNode(rootNode);
+            //this.node2.Nodes.Add(node);
+            //this.treeView1.Nodes.Add(node);
             //this.node1.Nodes.Add(node);
             //this.treeGX1.Nodes.Remove(this.node1);
-            //this.treeGX1.AllowDrop = true;
-            //this.treeGX1.CommandBackColorGradientAngle = 90;
-            //this.treeGX1.CommandMouseOverBackColor2SchemePart = DevComponents.Tree.eColorSchemePart.ItemHotBackground2;
-            //this.treeGX1.CommandMouseOverBackColorGradientAngle = 90;
-            //this.treeGX1.ExpandLineColorSchemePart = DevComponents.Tree.eColorSchemePart.BarDockedBorder;
-            //this.treeGX1.Location = new System.Drawing.Point(70, 83);
-            //this.treeGX1.Name = "treeGX1";
-            //this.treeGX1.Nodes.AddRange(new DevComponents.Tree.Node[] {
-            //node});
             //this.treeGX1.NodesConnector = this.nodeConnector2;
             //this.treeGX1.NodeStyle = this.elementStyle1;
             //this.treeGX1.PathSeparator = ";";
@@ -185,7 +240,7 @@ namespace DecisionTreeApp
             //this.treeGX1.SuspendPaint = false;
             //this.treeGX1.TabIndex = 2;
             //this.treeGX1.Text = "treeGX1";
-            
+
             //DrawTree();
 
             //this.node1.Expanded = true;
@@ -199,6 +254,12 @@ namespace DecisionTreeApp
             //node1.Nodes.Add(node2);
 
             //this.treeGX1.Nodes.Add(node2);
+        }
+
+        private void zoomBar_ValueChanged(object sender, EventArgs e)
+        {
+            decisionTree.Zoom = (float)zoomBar.Value / 100;
+            labelZoom.Text = zoomBar.Value.ToString() + "%";
         }
 
     }

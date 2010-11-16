@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{136B46FF-D57E-44A2-92AA-75D343DF4A9F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Solution Library\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
     <Reference Include="DevComponents.TreeGX, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Solution Library\DevComponents.TreeGX.dll</HintPath>
@@ -85,6 +89,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DecisionTree\DecisionTree.csproj">
+      <Project>{72B1B48F-BA87-44FD-A16C-450BD436AA38}</Project>
+      <Name>DecisionTree</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tree\Tree.csproj">
       <Project>{B67A7674-C139-4873-BFFF-8BD89613D316}</Project>
       <Name>Tree</Name>
