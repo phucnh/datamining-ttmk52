@@ -1,0 +1,245 @@
+<NetTiersReport DALNameSpace="AIDT.Data" SolutionLink="file:\\\.\AIDT.sln" ConnectionString="Data Source=TRUNGVT;Initial Catalog=AIDT;Integrated Security=True" FactoryType="AIDT.Entities.EntityFactory">
+  <initialization startTime="129344037899697871" executionTime="00:00:03.9532261">
+    <Message level="0" startTime="129344037899817878" message="Validating parameters." />
+    <Message level="0" startTime="129344037903558092" message="Loading templates." executionTime="00:00:02.5221443" />
+    <Message level="0" startTime="129344037928779535" message="Creating folders and copying dependencies." />
+  </initialization>
+  <customStoredProcedures includeCustoms="true" />
+  <common startTime="129344037939230132" executionTime="00:00:24.3703940">
+    <File name="ListBase.cs" startTime="129344037939230132" />
+    <File name="TList.cs" startTime="129344037941640270" />
+    <File name="VList.cs" startTime="129344037942880341" />
+    <File name="TestUtility.cs" startTime="129344037943880398" />
+    <File name="IEntity.cs" startTime="129344037945330481" />
+    <File name="IEntityId.cs" startTime="129344037946200531" />
+    <File name="IEntityKey.cs" startTime="129344037946770564" />
+    <File name="EntityFactory.cs" startTime="129344037947660615" />
+    <File name="EntityFactoryBase.cs" startTime="129344037948650671" />
+    <File name="IEntityFactory.cs" startTime="129344037949670730" />
+    <File name="IEntityCacheItem.cs" startTime="129344037950670787" />
+    <File name="EntityCache.cs" startTime="129344037951210818" />
+    <File name="EntityLocator.cs" startTime="129344037952850912" />
+    <File name="EntityManager.cs" startTime="129344037954350997" />
+    <File name="BrokenRule.cs" startTime="129344037955451060" />
+    <File name="BrokenRulesList.cs" startTime="129344037956221104" />
+    <File name="CommonRules.cs" startTime="129344037957121156" />
+    <File name="ValidationRuleArgs.cs" startTime="129344037958901258" />
+    <File name="ValidationRuleHandler.cs" startTime="129344037959671302" />
+    <File name="ValidationRuleInfo.cs" startTime="129344037960671359" />
+    <File name="ValidationRules.cs" startTime="129344037961671416" />
+    <File name="EntityBaseCore.generated.cs" startTime="129344037962451461" />
+    <File name="EntityBase.cs" startTime="129344037963561524" />
+    <File name="EntityKeyBaseCore.generated.cs" startTime="129344037964221562" />
+    <File name="EntityKeyBase.cs" startTime="129344037965001607" />
+    <File name="SecurityContext.cs" startTime="129344037966111670" />
+    <File name="SecurityContextBase.generated.cs" startTime="129344037967451747" />
+    <File name="ContextView.cs" startTime="129344037968791823" />
+    <File name="IProcessor.cs" startTime="129344037969791881" />
+    <File name="IProcessorResult.cs" startTime="129344037970441918" />
+    <File name="ProcessorBase.cs" startTime="129344037971221962" />
+    <File name="GenericProcessorResult.cs" startTime="129344037972672045" />
+    <File name="DomainUtil.cs" startTime="129344037973562096" />
+    <File name="IConnectionScope.cs" startTime="129344037974672160" />
+    <File name="ConnectionScope.cs" startTime="129344037975452204" />
+    <File name="ConnectionScopeBase.cs" startTime="129344037976352256" />
+    <File name="IComponentService.cs" startTime="129344037977332312" />
+    <File name="ServiceBase.cst.cs" startTime="129344037978232363" />
+    <File name="ServiceBaseCore.cst.cs" startTime="129344037979662445" />
+    <File name="ServiceViewBase.cst.cs" startTime="129344037981342541" />
+    <File name="ServiceViewBaseCore.cst.cs" startTime="129344037983352656" />
+    <File name="ServiceResult.cs" startTime="129344037984362714" />
+    <File name="EntityFilter.cs" startTime="129344037985122757" />
+    <File name="EntityPropertyComparer.cs" startTime="129344037986332827" />
+    <File name="GenericTypeConverter.cs" startTime="129344037987452891" />
+    <File name="Procedures.xml" startTime="129344037988122929" />
+    <File name="Utility.cs" startTime="129344038011854286" />
+    <File name="ITransactionManager.cs" startTime="129344038013344372" />
+    <File name="TransactionManager.cs" startTime="129344038014464436" />
+    <File name="DataRepository.cs" startTime="129344038015664504" />
+    <File name="IEntityProvider.cs" startTime="129344038017114587" />
+    <File name="IEntityViewProvider.cs" startTime="129344038018234651" />
+    <File name="EntityProviderBase.cs" startTime="129344038019054698" />
+    <File name="EntityProviderBaseCore.generated.cs" startTime="129344038019794741" />
+    <File name="EntityViewProviderBase.cs" startTime="129344038022674905" />
+    <File name="EntityViewProviderBaseCore.generated.cs" startTime="129344038024124988" />
+    <File name="INetTiersProvider.cs" startTime="129344038025795084" />
+    <File name="NetTiersProvider.cs" startTime="129344038028385232" />
+    <File name="NetTiersProviderBase.cs" startTime="129344038031465408" />
+    <File name="NetTiersProviderCollection.cs" startTime="129344038034125560" />
+    <File name="NetTiersServiceSection.cs" startTime="129344038034685592" />
+    <File name="ExpressionParserBase.cs" startTime="129344038035585644" />
+    <File name="SqlExpressionParser.cs" startTime="129344038036465694" />
+    <File name="SqlStringBuilder.cs" startTime="129344038037485752" />
+    <File name="SqlUtil.cs" startTime="129344038039995896" />
+    <File name="StringTokenizer.cs" startTime="129344038041005954" />
+    <File name="SqlClient\SqlNetTiersProvider.cs" startTime="129344038041795999" />
+    <File name="StoredProcedureProvider.cs" startTime="129344038043126075" />
+    <File name="BaseDataSource.cs" startTime="129344038043906120" />
+    <File name="BaseDataSourceDesigner.cs" startTime="129344038045796228" />
+    <File name="CustomDataSource.cs" startTime="129344038047356317" />
+    <File name="CustomDataSourceDesigner.cs" startTime="129344038048696394" />
+    <File name="CustomParameter.cs" startTime="129344038049916463" />
+    <File name="DataParameter.cs" startTime="129344038050926521" />
+    <File name="EntityDataSource.cs" startTime="129344038052136590" />
+    <File name="EntityDataSourceFilter.cs" startTime="129344038054676736" />
+    <File name="EntityRelationship.cs" startTime="129344038055796800" />
+    <File name="EntityRelationshipMember.cs" startTime="129344038056616847" />
+    <File name="EntityTransactionModule.cs" startTime="129344038057916921" />
+    <File name="ILinkedDataSource.cs" startTime="129344038059026984" />
+    <File name="ManyToManyListRelationship.cs" startTime="129344038060457066" />
+    <File name="ManyToManyViewRelationship.cs" startTime="129344038061577130" />
+    <File name="OneToManyGridRelationship.cs" startTime="129344038062577188" />
+    <File name="OneToOneViewRelationship.cs" startTime="129344038063687251" />
+    <File name="ProviderDataSource.cs" startTime="129344038064807315" />
+    <File name="ProviderDataSourceDesigner.cs" startTime="129344038066577416" />
+    <File name="ReadOnlyDataSource.cs" startTime="129344038068467524" />
+    <File name="ReadOnlyDataSourceDesigner.cs" startTime="129344038070247626" />
+    <File name="SqlParameter.cs" startTime="129344038071567702" />
+    <File name="CourseGroupDataSource.cs" startTime="129344038074027842" />
+    <File name="OccupationTypeDataSource.cs" startTime="129344038075677937" />
+    <File name="CustomerDetailsDataSource.cs" startTime="129344038076487983" />
+    <File name="CourseCertificateDataSource.cs" startTime="129344038077268028" />
+    <File name="CourseDetailsDataSource.cs" startTime="129344038077918065" />
+    <File name="TeacherDetailsDataSource.cs" startTime="129344038079008127" />
+    <File name="ClassTimeDataSource.cs" startTime="129344038080248198" />
+    <File name="ClassDetailsDataSource.cs" startTime="129344038081348261" />
+    <File name="ClassArrangementDataSource.cs" startTime="129344038082478326" />
+    <File name="FormUtil.cs" startTime="129344038083708396" />
+    <File name="FormUtilBase.generated.cs" startTime="129344038084578446" />
+    <File name="MultiBindableTemplate.cs" startTime="129344038087808631" />
+    <File name="MultiFormView.cs" startTime="129344038089588733" />
+    <File name="EntityGridView.cs" startTime="129344038091018814" />
+    <File name="EntityDropDownList.cs" startTime="129344038092588904" />
+    <File name="BoundEntityDropDownField.cs" startTime="129344038094809031" />
+    <File name="BoundRadioButtonField.cs" startTime="129344038096279115" />
+    <File name="GridViewSearchPanel.cs" startTime="129344038097369178" />
+    <File name="GridViewSearchPanelState.cs" startTime="129344038099369292" />
+    <File name="EntityLabel.cs" startTime="129344038100589362" />
+    <File name="HyperlinkField.cs" startTime="129344038101819432" />
+    <File name="CourseGroupRepeater.cs" startTime="129344038102929496" />
+    <File name="OccupationTypeRepeater.cs" startTime="129344038104139565" />
+    <File name="CustomerDetailsRepeater.cs" startTime="129344038105699654" />
+    <File name="CourseCertificateRepeater.cs" startTime="129344038106599705" />
+    <File name="CourseDetailsRepeater.cs" startTime="129344038107969784" />
+    <File name="TeacherDetailsRepeater.cs" startTime="129344038109359863" />
+    <File name="ClassTimeRepeater.cs" startTime="129344038110349920" />
+    <File name="ClassDetailsRepeater.cs" startTime="129344038111349977" />
+    <File name="ClassArrangementRepeater.cs" startTime="129344038112970070" />
+    <File name="Web.config" startTime="129344038114370150" />
+    <File name="Enterprise Library v4_1 website configuration files" startTime="129344038115730228" />
+    <File name="Default.aspx" startTime="129344038116470270" />
+    <File name="Default.aspx.cs" startTime="129344038117580334" />
+    <File name="AIDT.sln" startTime="129344038165473073" />
+    <File name="Services.csproj" startTime="129344038167823207" />
+    <File name="AIDT.Entities.csproj" startTime="129344038172163456" />
+    <File name="AIDT.Data.Data.csproj" startTime="129344038173813550" />
+    <File name="AIDT.Entities.Data.SqlClient.csproj" startTime="129344038175043620" />
+    <File name="AIDT.Web.csproj" startTime="129344038176253689" />
+    <File name="AIDT.build" startTime="129344038177603767" />
+    <File name="EntityHelper.cs" startTime="129344038178813836" />
+    <File name="EntityUtil.cs" startTime="129344038179933900" />
+  </common>
+  <Table name="ClassArrangement" startTime="129344038182944072" executionTime="00:00:01.8881080">
+    <File name="ClassArrangement.generated.cs" startTime="129344038182964073" executionTime="00:00:00.3200183" />
+    <File name="IClassArrangement.cs" startTime="129344038186164256" executionTime="00:00:00.1220070" />
+    <File name="ClassArrangement.cs" startTime="129344038187384326" executionTime="00:00:00.1110064" />
+    <File name="ClassArrangementService.cs" startTime="129344038188494390" executionTime="00:00:00.1340076" />
+    <File name="ClassArrangementServiceBase.generated.cs" startTime="129344038189834466" executionTime="00:00:00.3880222" />
+    <File name="ClassArrangementProviderBase.generatedCore.cs" startTime="129344038193714688" executionTime="00:00:00.3020173" />
+    <File name="ClassArrangementProviderBase.generated.cs" startTime="129344038196734861" executionTime="00:00:00.1310075" />
+    <File name="SqlClient\SqlClassArrangementProviderBase.generated.cs" startTime="129344038198054936" executionTime="00:00:00.2780159" />
+    <File name="SqlClient\ClassArrangementTest.cs" startTime="129344038200845096" executionTime="00:00:00.0980056" />
+  </Table>
+  <Table name="ClassDetails" startTime="129344038201825152" executionTime="00:00:01.3230757">
+    <File name="ClassDetails.generated.cs" startTime="129344038201835153" executionTime="00:00:00.2310132" />
+    <File name="IClassDetails.cs" startTime="129344038204145285" executionTime="00:00:00.0900051" />
+    <File name="ClassDetails.cs" startTime="129344038205055337" executionTime="00:00:00.1100063" />
+    <File name="ClassDetailsService.cs" startTime="129344038206165400" executionTime="00:00:00.1240071" />
+    <File name="ClassDetailsServiceBase.generated.cs" startTime="129344038207405471" executionTime="00:00:00.2970170" />
+    <File name="ClassDetailsProviderBase.generatedCore.cs" startTime="129344038210375641" executionTime="00:00:00.1440082" />
+    <File name="ClassDetailsProviderBase.generated.cs" startTime="129344038211825724" executionTime="00:00:00.1440082" />
+    <File name="SqlClient\SqlClassDetailsProviderBase.generated.cs" startTime="129344038213265806" executionTime="00:00:00.0990057" />
+    <File name="SqlClient\ClassDetailsTest.cs" startTime="129344038214265864" executionTime="00:00:00.0790045" />
+  </Table>
+  <Table name="ClassTime" startTime="129344038215055909" executionTime="00:00:01.0090577">
+    <File name="ClassTime.generated.cs" startTime="129344038215055909" executionTime="00:00:00.2100120" />
+    <File name="IClassTime.cs" startTime="129344038217166030" executionTime="00:00:00.0760043" />
+    <File name="ClassTime.cs" startTime="129344038217936074" executionTime="00:00:00.0770044" />
+    <File name="ClassTimeService.cs" startTime="129344038218706118" executionTime="00:00:00.0890051" />
+    <File name="ClassTimeServiceBase.generated.cs" startTime="129344038219596169" executionTime="00:00:00.1660094" />
+    <File name="ClassTimeProviderBase.generatedCore.cs" startTime="129344038221256263" executionTime="00:00:00.1010058" />
+    <File name="ClassTimeProviderBase.generated.cs" startTime="129344038222266321" executionTime="00:00:00.0780045" />
+    <File name="SqlClient\SqlClassTimeProviderBase.generated.cs" startTime="129344038223056366" executionTime="00:00:00.1100063" />
+    <File name="SqlClient\ClassTimeTest.cs" startTime="129344038224166430" executionTime="00:00:00.0980056" />
+  </Table>
+  <Table name="CourseCertificate" startTime="129344038225146486" executionTime="00:00:01.4130808">
+    <File name="CourseCertificate.generated.cs" startTime="129344038225146486" executionTime="00:00:00.3590205" />
+    <File name="ICourseCertificate.cs" startTime="129344038228736691" executionTime="00:00:00.0860050" />
+    <File name="CourseCertificate.cs" startTime="129344038229606741" executionTime="00:00:00.0770044" />
+    <File name="CourseCertificateService.cs" startTime="129344038230376785" executionTime="00:00:00.1010058" />
+    <File name="CourseCertificateServiceBase.generated.cs" startTime="129344038231386843" executionTime="00:00:00.3210184" />
+    <File name="CourseCertificateProviderBase.generatedCore.cs" startTime="129344038234597027" executionTime="00:00:00.1450082" />
+    <File name="CourseCertificateProviderBase.generated.cs" startTime="129344038236047109" executionTime="00:00:00.1120065" />
+    <File name="SqlClient\SqlCourseCertificateProviderBase.generated.cs" startTime="129344038237167174" executionTime="00:00:00.1000057" />
+    <File name="SqlClient\CourseCertificateTest.cs" startTime="129344038238167231" executionTime="00:00:00.1110063" />
+  </Table>
+  <Table name="CourseDetails" startTime="129344038239277294" executionTime="00:00:01.2000687">
+    <File name="CourseDetails.generated.cs" startTime="129344038239287295" executionTime="00:00:00.2210126" />
+    <File name="ICourseDetails.cs" startTime="129344038241507422" executionTime="00:00:00.0880050" />
+    <File name="CourseDetails.cs" startTime="129344038242387472" executionTime="00:00:00.1100063" />
+    <File name="CourseDetailsService.cs" startTime="129344038243487535" executionTime="00:00:00.0900051" />
+    <File name="CourseDetailsServiceBase.generated.cs" startTime="129344038244387586" executionTime="00:00:00.2100121" />
+    <File name="CourseDetailsProviderBase.generatedCore.cs" startTime="129344038246487707" executionTime="00:00:00.1570089" />
+    <File name="CourseDetailsProviderBase.generated.cs" startTime="129344038248067797" executionTime="00:00:00.1110063" />
+    <File name="SqlClient\SqlCourseDetailsProviderBase.generated.cs" startTime="129344038249227863" executionTime="00:00:00.0930054" />
+    <File name="SqlClient\CourseDetailsTest.cs" startTime="129344038250157917" executionTime="00:00:00.1120064" />
+  </Table>
+  <Table name="CourseGroup" startTime="129344038251277981" executionTime="00:00:01.3000743">
+    <File name="CourseGroup.generated.cs" startTime="129344038251277981" executionTime="00:00:00.2330133" />
+    <File name="ICourseGroup.cs" startTime="129344038253618114" executionTime="00:00:00.1000058" />
+    <File name="CourseGroup.cs" startTime="129344038254618172" executionTime="00:00:00.0970055" />
+    <File name="CourseGroupService.cs" startTime="129344038255598228" executionTime="00:00:00.1450083" />
+    <File name="CourseGroupServiceBase.generated.cs" startTime="129344038257048311" executionTime="00:00:00.2660152" />
+    <File name="CourseGroupProviderBase.generatedCore.cs" startTime="129344038259708463" executionTime="00:00:00.1110063" />
+    <File name="CourseGroupProviderBase.generated.cs" startTime="129344038260828527" executionTime="00:00:00.1110063" />
+    <File name="SqlClient\SqlCourseGroupProviderBase.generated.cs" startTime="129344038261948591" executionTime="00:00:00.1000057" />
+    <File name="SqlClient\CourseGroupTest.cs" startTime="129344038262948648" executionTime="00:00:00.1330076" />
+  </Table>
+  <Table name="CustomerDetails" startTime="129344038264278724" executionTime="00:00:01.2450712">
+    <File name="CustomerDetails.generated.cs" startTime="129344038264278724" executionTime="00:00:00.2450140" />
+    <File name="ICustomerDetails.cs" startTime="129344038266728864" executionTime="00:00:00.0880051" />
+    <File name="CustomerDetails.cs" startTime="129344038267608915" executionTime="00:00:00.1000057" />
+    <File name="CustomerDetailsService.cs" startTime="129344038268618972" executionTime="00:00:00.1010058" />
+    <File name="CustomerDetailsServiceBase.generated.cs" startTime="129344038269629030" executionTime="00:00:00.2210127" />
+    <File name="CustomerDetailsProviderBase.generatedCore.cs" startTime="129344038271859158" executionTime="00:00:00.1760100" />
+    <File name="CustomerDetailsProviderBase.generated.cs" startTime="129344038273629259" executionTime="00:00:00.1100063" />
+    <File name="SqlClient\SqlCustomerDetailsProviderBase.generated.cs" startTime="129344038274729322" executionTime="00:00:00.1100063" />
+    <File name="SqlClient\CustomerDetailsTest.cs" startTime="129344038275839385" executionTime="00:00:00.0890051" />
+  </Table>
+  <Table name="OccupationType" startTime="129344038276729436" executionTime="00:00:01.0880623">
+    <File name="OccupationType.generated.cs" startTime="129344038276729436" executionTime="00:00:00.2320133" />
+    <File name="IOccupationType.cs" startTime="129344038279049569" executionTime="00:00:00.1010058" />
+    <File name="OccupationType.cs" startTime="129344038280059627" executionTime="00:00:00.0870050" />
+    <File name="OccupationTypeService.cs" startTime="129344038280929677" executionTime="00:00:00.0910052" />
+    <File name="OccupationTypeServiceBase.generated.cs" startTime="129344038281839729" executionTime="00:00:00.2000114" />
+    <File name="OccupationTypeProviderBase.generatedCore.cs" startTime="129344038283839843" executionTime="00:00:00.0890051" />
+    <File name="OccupationTypeProviderBase.generated.cs" startTime="129344038284729894" executionTime="00:00:00.1130065" />
+    <File name="SqlClient\SqlOccupationTypeProviderBase.generated.cs" startTime="129344038285869959" executionTime="00:00:00.0970056" />
+    <File name="SqlClient\OccupationTypeTest.cs" startTime="129344038286840015" executionTime="00:00:00.0770044" />
+  </Table>
+  <Table name="TeacherDetails" startTime="129344038287610059" executionTime="00:00:01.2670724">
+    <File name="TeacherDetails.generated.cs" startTime="129344038287610059" executionTime="00:00:00.2240128" />
+    <File name="ITeacherDetails.cs" startTime="129344038289860187" executionTime="00:00:00.0860050" />
+    <File name="TeacherDetails.cs" startTime="129344038290720237" executionTime="00:00:00.0900051" />
+    <File name="TeacherDetailsService.cs" startTime="129344038291620288" executionTime="00:00:00.1450083" />
+    <File name="TeacherDetailsServiceBase.generated.cs" startTime="129344038293080372" executionTime="00:00:00.2650151" />
+    <File name="TeacherDetailsProviderBase.generatedCore.cs" startTime="129344038295730523" executionTime="00:00:00.1110064" />
+    <File name="TeacherDetailsProviderBase.generated.cs" startTime="129344038296850587" executionTime="00:00:00.1100063" />
+    <File name="SqlClient\SqlTeacherDetailsProviderBase.generated.cs" startTime="129344038297960651" executionTime="00:00:00.1440082" />
+    <File name="SqlClient\TeacherDetailsTest.cs" startTime="129344038299400733" executionTime="00:00:00.0880050" />
+  </Table>
+  <summary>
+    <objectCount>214</objectCount>
+    <messageCount>0</messageCount>
+  </summary>
+</NetTiersReport>
