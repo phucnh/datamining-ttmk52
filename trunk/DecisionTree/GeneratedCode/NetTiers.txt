@@ -1,4 +1,0 @@
-﻿Generation complete. Execution time: 00:00:44.1015225
-You can view current documentation @ http://docs.netTiers.com
-Generated solution can be found here: 
-file:\\\.\AIDT.sln
