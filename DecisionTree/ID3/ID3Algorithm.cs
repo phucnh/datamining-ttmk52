@@ -9,6 +9,7 @@ namespace AIDT.ID3
     {
         public static double CalculateInformationFunction(double p, double n)
         {
+            if ((p == 0) || (n == 0)) return 0;
             return -(((double)p / (p + n)) * (Math.Log((double)p / (p + n), 2)) + ((double)n / (p + n)) * (Math.Log((double)n / (p + n), 2)));
         }
 
@@ -22,12 +23,12 @@ namespace AIDT.ID3
             {
                 for (j = 0; j < propertyDataSet.GetLength(1); j++)
                 {
-                    totalItem = totalItem + propertyDataSet[i,j];
+                    totalItem = totalItem + propertyDataSet[i, j];
                 }
             }
             for (i = 0; i < propertyDataSet.GetLength(0); i++)
             {
-                if ((propertyDataSet[i,0] == 0) || (propertyDataSet[i,1] == 0))
+                if ((propertyDataSet[i, 0] == 0) || (propertyDataSet[i, 1] == 0))
                 {
                     tempPropability = 0;
                 }
@@ -47,8 +48,8 @@ namespace AIDT.ID3
             int totalNi = 0;
             for (i = 0; i < propertyDataSet.GetLength(0); i++)
             {
-                totalPi = totalPi + propertyDataSet[i,0];
-                totalNi = totalNi + propertyDataSet[i,1];
+                totalPi = totalPi + propertyDataSet[i, 0];
+                totalNi = totalNi + propertyDataSet[i, 1];
             }
 
             double valueOfInformationFunction = CalculateInformationFunction(totalPi, totalNi);

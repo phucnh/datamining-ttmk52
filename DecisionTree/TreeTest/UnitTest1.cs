@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Data;
 
 namespace TreeTest
 {
@@ -113,6 +114,15 @@ namespace TreeTest
             testTree.RemoveBranch(branch3);
 
             Assert.AreEqual(2, testTree.Branches.Count);
+        }
+
+        [TestMethod]
+        public void TestMakeRandomDataset()
+        {
+            DataTable dataTable = AIDT.AIDatabase.Services.AIDataset.MakeFullDataSet();
+            DataTable randomdatatable = AIDT.AIDatabase.Services.AIDataset.MakeRandomDataset();
+
+            Assert.AreNotEqual(0, dataTable.Rows.Count);
         }
 
         //[TestMethod]

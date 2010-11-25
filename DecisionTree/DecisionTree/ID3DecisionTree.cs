@@ -236,7 +236,7 @@ namespace DecisionTree
                 double _value = 0;
                 if (_gainDictionary.TryGetValue(_key, out _value))
                 {
-                    if (_value > max)
+                    if (_value >= max)
                     {
                         max = _value;
                         _nameMax = _key;

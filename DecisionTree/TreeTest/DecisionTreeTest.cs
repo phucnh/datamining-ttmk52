@@ -59,42 +59,5 @@ namespace TreeTest
         // public void MyTestCleanup() { }
         //
         #endregion
-
-        [TestMethod]
-        public void TestMethod1()
-        {
-            System.Data.DataTable _testDataSet = new System.Data.DataTable();
-            _testDataSet.Columns.Add("HairColor");
-            _testDataSet.Columns.Add("Height");
-            _testDataSet.Columns.Add("Weight");
-            _testDataSet.Columns.Add("Use");
-            _testDataSet.Columns.Add("Result");
-
-            string[] tempString = { "Den", "Tam thuoc", "Nhe", "Khong", "true" };
-            _testDataSet.Rows.Add(tempString);
-            tempString = new string[5] { "Den", "Cao", "Vua phai", "Co", "false" };
-            _testDataSet.Rows.Add(tempString);
-            tempString = new string[5] { "Ram", "Thap", "Vua phai", "Co", "false" };
-            _testDataSet.Rows.Add(tempString);
-            tempString = new string[5] { "Den", "Thap", "Vua phai", "Khong", "true" };
-            _testDataSet.Rows.Add(tempString);
-            tempString = new string[5] { "Bac", "Tam thuoc", "Nang", "Khong", "true" };
-            _testDataSet.Rows.Add(tempString);
-            tempString = new string[5] { "Ram", "Cao", "Nang", "Khong", "false" };
-            _testDataSet.Rows.Add(tempString);
-            tempString = new string[5] { "Ram", "Tam thuoc", "Nang", "Khong", "false" };
-            _testDataSet.Rows.Add(tempString);
-            tempString = new string[5]  { "Den", "Thap", "Nhe", "Co", "false" };
-            _testDataSet.Rows.Add(tempString);
-
-            AIDT.Tree.Node node = new AIDT.Tree.Node();
-            DecisionTree.ID3DecisionTree testDTree = new DecisionTree.ID3DecisionTree();
-            testDTree.ResultName = "Result";
-            testDTree.ResultToString = "true";
-            //node = testDTree.CalculateRoot(_testDataSet);
-            testDTree.GetTreeWithID3(_testDataSet);
-
-            //Assert.AreEqual("HairColor", node.NodeName);
-        }
     }
 }

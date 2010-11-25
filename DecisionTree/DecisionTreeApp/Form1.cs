@@ -11,11 +11,11 @@ using DevComponents.Tree;
 
 
 
-namespace DecisionTreeApp
+namespace AIDT.DecisionTreeApp
 {
-    public partial class Form1 : DevComponents.DotNetBar.Office2007Form
+    public partial class frmDecisionTree : DevComponents.DotNetBar.Office2007Form
     {
-        public Form1()
+        public frmDecisionTree()
         {
             InitializeComponent();
         }
@@ -24,11 +24,13 @@ namespace DecisionTreeApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Tree test = TestTree();
-            //AIDT.Tree.Node rootNode = test.Root;
-            //GetListNode(rootNode);
-            //DrawTree();
-
+            if ((MainForm.decisionTree != null) &&
+                (MainForm.decisionTree.DTree != null) &&
+                (MainForm.decisionTree.DTree.Root != null))
+            {
+                DevComponents.Tree.Node treeGXNode = GetListNode(MainForm.decisionTree.DTree.Root);
+                this.node2.Nodes.Add(treeGXNode);
+            }
         }
 
         void TestMethod()
@@ -78,43 +80,43 @@ namespace DecisionTreeApp
 
         }
 
-        public Tree TestTree()
-        {
-            Tree testTree = new Tree();
+        //public Tree TestTree()
+        //{
+        //    //Tree testTree = new Tree();
 
-            AIDT.Tree.Node node3 = new AIDT.Tree.Node();
-            node3.NodeName = "node3";
+        //    AIDT.Tree.Node node3 = new AIDT.Tree.Node();
+        //    node3.NodeName = "node3";
 
-            AIDT.Tree.Node node4 = new AIDT.Tree.Node();
-            node4.NodeName = "node4";
+        //    AIDT.Tree.Node node4 = new AIDT.Tree.Node();
+        //    node4.NodeName = "node4";
 
-            AIDT.Tree.Node node5 = new AIDT.Tree.Node();
-            node5.NodeName = "node5";
+        //    AIDT.Tree.Node node5 = new AIDT.Tree.Node();
+        //    node5.NodeName = "node5";
 
-            AIDT.Tree.Node node1 = new AIDT.Tree.Node("node1", null, null, null, null);
-            node1.AddChildNode(node3);
-            node1.AddChildNode(node4);
+        //    AIDT.Tree.Node node1 = new AIDT.Tree.Node("node1", null, null, null, null);
+        //    node1.AddChildNode(node3);
+        //    node1.AddChildNode(node4);
 
-            AIDT.Tree.Node node2 = new AIDT.Tree.Node("node2", null, null, null, null);
-            node2.AddChildNode(node5);
+        //    AIDT.Tree.Node node2 = new AIDT.Tree.Node("node2", null, null, null, null);
+        //    node2.AddChildNode(node5);
 
-            List<AIDT.Tree.Node> listChildNode = new List<AIDT.Tree.Node>();
-            listChildNode.Add(node1);
-            listChildNode.Add(node2);
-            listChildNode.Add(node3);
-            listChildNode.Add(node4);
-            listChildNode.Add(node5);
+        //    List<AIDT.Tree.Node> listChildNode = new List<AIDT.Tree.Node>();
+        //    listChildNode.Add(node1);
+        //    listChildNode.Add(node2);
+        //    listChildNode.Add(node3);
+        //    listChildNode.Add(node4);
+        //    listChildNode.Add(node5);
 
-            AIDT.Tree.Node rootNode = new AIDT.Tree.Node();
-            rootNode.NodeName = "Root";
-            rootNode.AddChildNode(node1);
-            rootNode.AddChildNode(node2);
+        //    AIDT.Tree.Node rootNode = new AIDT.Tree.Node();
+        //    rootNode.NodeName = "Root";
+        //    rootNode.AddChildNode(node1);
+        //    rootNode.AddChildNode(node2);
 
-            testTree.Root = rootNode;
-            testTree.ChildNodes = listChildNode;
+        //    testTree.Root = rootNode;
+        //    testTree.ChildNodes = listChildNode;
 
-            return testTree;
-        }
+        //    return testTree;
+        //}
 
         List<DevComponents.Tree.Node> atempListNode = new List<DevComponents.Tree.Node>();
 
@@ -222,9 +224,9 @@ namespace DecisionTreeApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Tree test = TestTree();
-            AIDT.Tree.Node rootNode = test.Root;
-            TestMethod();
+            //Tree test = TestTree();
+            //AIDT.Tree.Node rootNode = test.Root;
+            //TestMethod();
             //TreeNode node = GetListNode(rootNode);
             //DevComponents.Tree.Node node = GetListNode(rootNode);
             //this.node2.Nodes.Add(node);
