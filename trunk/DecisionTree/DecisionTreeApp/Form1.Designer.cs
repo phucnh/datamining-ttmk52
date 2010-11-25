@@ -1,6 +1,6 @@
-﻿namespace DecisionTreeApp
+﻿namespace AIDT.DecisionTreeApp
 {
-    partial class Form1
+    partial class frmDecisionTree
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.node1 = new DevComponents.Tree.Node();
             this.decisionTree = new DevComponents.Tree.TreeGX();
             this.node2 = new DevComponents.Tree.Node();
@@ -46,19 +45,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.decisionTree)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(17, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 21);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // node1
             // 
-            this.node1.Expanded = true;
             this.node1.Name = "node1";
             this.node1.Text = "node1";
             // 
@@ -313,20 +301,19 @@
             this.labelZoom.TabIndex = 4;
             this.labelZoom.Text = "labelX1";
             // 
-            // Form1
+            // frmDecisionTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(1125, 617);
             this.Controls.Add(this.labelZoom);
             this.Controls.Add(this.zoomBar);
             this.Controls.Add(this.decisionTree);
-            this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
-            this.Name = "Form1";
+            this.Name = "frmDecisionTree";
             this.Opacity = 0.9;
-            this.Text = "Main Form";
+            this.Text = "Decision Tree";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.decisionTree)).EndInit();
             this.ResumeLayout(false);
@@ -335,7 +322,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
         private DevComponents.Tree.Node node1;
         private DevComponents.Tree.TreeGX decisionTree;
         private DevComponents.Tree.Node node2;
