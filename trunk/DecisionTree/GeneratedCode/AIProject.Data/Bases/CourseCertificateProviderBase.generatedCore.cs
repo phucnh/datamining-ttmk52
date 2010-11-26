@@ -221,6 +221,7 @@ namespace AIProject.Data.Bases
 					c.SuppressEntityEvents = true;
 					c.CertificateId = (System.Int32)reader[((int)CourseCertificateColumn.CertificateId - 1)];
 					c.CertificateName = (reader.IsDBNull(((int)CourseCertificateColumn.CertificateName - 1)))?null:(System.String)reader[((int)CourseCertificateColumn.CertificateName - 1)];
+					c.Description = (reader.IsDBNull(((int)CourseCertificateColumn.Description - 1)))?null:(System.String)reader[((int)CourseCertificateColumn.Description - 1)];
 					c.EntityTrackingKey = key;
 					c.AcceptChanges();
 					c.SuppressEntityEvents = false;
@@ -240,6 +241,7 @@ namespace AIProject.Data.Bases
 			
 			entity.CertificateId = (System.Int32)reader[((int)CourseCertificateColumn.CertificateId - 1)];
 			entity.CertificateName = (reader.IsDBNull(((int)CourseCertificateColumn.CertificateName - 1)))?null:(System.String)reader[((int)CourseCertificateColumn.CertificateName - 1)];
+			entity.Description = (reader.IsDBNull(((int)CourseCertificateColumn.Description - 1)))?null:(System.String)reader[((int)CourseCertificateColumn.Description - 1)];
 			entity.AcceptChanges();
 		}
 		
@@ -254,6 +256,7 @@ namespace AIProject.Data.Bases
 			
 			entity.CertificateId = (System.Int32)dataRow["CertificateId"];
 			entity.CertificateName = Convert.IsDBNull(dataRow["CertificateName"]) ? null : (System.String)dataRow["CertificateName"];
+			entity.Description = Convert.IsDBNull(dataRow["Description"]) ? null : (System.String)dataRow["Description"];
 			entity.AcceptChanges();
 		}
 		#endregion 

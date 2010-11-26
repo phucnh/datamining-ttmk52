@@ -18,6 +18,7 @@
 			<Columns>
 				<asp:CommandField ShowSelectButton="True" ShowEditButton="True" />				
 				<asp:BoundField DataField="CertificateName" HeaderText="Certificate Name" SortExpression="[CertificateName]"  />
+				<asp:BoundField DataField="Description" HeaderText="Description" SortExpression="[Description]"  />
 			</Columns>
 			<EmptyDataTemplate>
 				<b>No CourseCertificate Found!</b>

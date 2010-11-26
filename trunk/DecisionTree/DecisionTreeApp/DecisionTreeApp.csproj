@@ -56,6 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AIProjectDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AIProjectDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Demo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +101,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="AIProjectDataSet.xsc">
+      <DependentUpon>AIProjectDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AIProjectDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AIProjectDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AIProjectDataSet.xss">
+      <DependentUpon>AIProjectDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

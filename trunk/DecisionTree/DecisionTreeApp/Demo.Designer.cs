@@ -35,9 +35,9 @@
             // 
             this.grpClassDetails.CanvasColor = System.Drawing.SystemColors.Control;
             this.grpClassDetails.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.grpClassDetails.Location = new System.Drawing.Point(12, 12);
+            this.grpClassDetails.Location = new System.Drawing.Point(12, 56);
             this.grpClassDetails.Name = "grpClassDetails";
-            this.grpClassDetails.Size = new System.Drawing.Size(357, 477);
+            this.grpClassDetails.Size = new System.Drawing.Size(371, 433);
             // 
             // 
             // 

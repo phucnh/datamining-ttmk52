@@ -9,6 +9,12 @@
 					<asp:TextBox runat="server" ID="dataCertificateName" Text='<%# Bind("CertificateName") %>' MaxLength="50"></asp:TextBox>
 				</td>
 			</tr>
+			<tr>
+        <td class="literal"><asp:Label ID="lbldataDescription" runat="server" Text="Description:" AssociatedControlID="dataDescription" /></td>
+        <td>
+					<asp:TextBox runat="server" ID="dataDescription" Text='<%# Bind("Description") %>'  TextMode="MultiLine"  Width="250px" Rows="5"></asp:TextBox>
+				</td>
+			</tr>
 			
 		</table>
 
