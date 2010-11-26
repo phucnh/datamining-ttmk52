@@ -43,7 +43,12 @@ namespace AIDT.Tree
         public Node Parent
         {
             get { return parent; }
-            set { parent = value; }
+            set 
+            {
+                parent.Childs.Remove(this);
+                value.Childs.Add(this);
+                parent = value; 
+            }
         }
 
         public Node()

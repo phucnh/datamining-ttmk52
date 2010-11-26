@@ -40,5 +40,12 @@ namespace AIDT.DecisionTreeApp
 
             _frm.ShowDialog();
         }
+
+        private void buttonItem2_Click(object sender, EventArgs e)
+        {
+            Demo frm = new Demo();
+
+            frm.ShowDialog();
+        }
     }
 }

@@ -128,15 +128,15 @@ namespace AIDT.DecisionTreeApp
                 DevComponents.Tree.Node currentParentNode = new DevComponents.Tree.Node();
                 currentParentNode.Name = root.NodeName;
                 StringBuilder _format = new StringBuilder(String.Empty);
-                _format.AppendFormat("( {0} ) {1} ", root.NodeValue, root.NodeName);
-                //if (root.ResultValue == null)
-                //    _format.AppendFormat("( {0} ) {1} ", root.NodeValue, root.NodeName);
-                //else
-                //    _format.AppendFormat("( {0} ) {1}. Result {3}. Native Result {4} ",
-                //        root.NodeValue, 
-                //        root.NodeName,
-                //        root.ResultValue[0].ToString(),
-                //        root.ResultValue[1].ToString());
+                //_format.AppendFormat("( {0} ) {1} ", root.NodeValue, root.NodeName);
+                if (root.ResultValue == null)
+                    _format.AppendFormat("( {0} ) {1} ", root.NodeValue, root.NodeName);
+                else
+                    _format.AppendFormat("( {0} ) {1}. Result: {2}. Native Result: {3} ",
+                        root.NodeValue,
+                        root.NodeName,
+                        root.ResultValue[0].ToString(),
+                        root.ResultValue[1].ToString());
 
                 currentParentNode.Text = _format.ToString();
                 currentParentNode.Expanded = true;
