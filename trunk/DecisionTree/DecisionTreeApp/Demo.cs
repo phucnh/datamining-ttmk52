@@ -20,6 +20,26 @@ namespace AIDT.DecisionTreeApp
 
         private void Demo_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'aIProjectDataSet.ClassDetails' table. You can move, or remove it, as needed.
+            this.classDetailsTableAdapter.Fill(this.aIProjectDataSet.ClassDetails);
+            // TODO: This line of code loads data into the 'aIProjectDataSet.ClassDetails' table. You can move, or remove it, as needed.
+            this.classDetailsTableAdapter.Fill(this.aIProjectDataSet.ClassDetails);
+
+        }
+
+        private void classDetailsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.classDetailsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.aIProjectDataSet);
+
+        }
+
+        private void classDetailsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.classDetailsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.aIProjectDataSet);
 
         }
     }
