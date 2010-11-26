@@ -974,7 +974,8 @@
 				
 				SELECT
 					[CertificateId],
-					[CertificateName]
+					[CertificateName],
+					[Description]
 				FROM
 					[dbo].[CourseCertificate]
 					
@@ -1038,7 +1039,7 @@
 				EXEC sp_executesql @SQL
 
 				-- Return paged results
-				SELECT O.[CertificateId], O.[CertificateName]
+				SELECT O.[CertificateId], O.[CertificateName], O.[Description]
 				FROM
 				    [dbo].[CourseCertificate] O,
 				    #PageIndex PageIndex
@@ -1073,16 +1074,19 @@
 			<parameters>
 				<parameter name="@CertificateId" type="int" direction="Output" size="4" precision="10" scale="0" param="" nulldefault=""/>
 				<parameter name="@CertificateName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Description" type="nvarchar" direction="Input" size="1024" precision="0" scale="0" param="(1024)" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 				
 				INSERT INTO [dbo].[CourseCertificate]
 					(
 					[CertificateName]
+					,[Description]
 					)
 				VALUES
 					(
 					@CertificateName
+					,@Description
 					)
 				
 				-- Get the identity value
@@ -1103,6 +1107,7 @@
 			<parameters>
 				<parameter name="@CertificateId" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
 				<parameter name="@CertificateName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Description" type="nvarchar" direction="Input" size="1024" precision="0" scale="0" param="(1024)" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -1112,6 +1117,7 @@
 					[dbo].[CourseCertificate]
 				SET
 					[CertificateName] = @CertificateName
+					,[Description] = @Description
 				WHERE
 [CertificateId] = @CertificateId 
 				
@@ -1151,7 +1157,8 @@
 			<body><![CDATA[
 				SELECT
 					[CertificateId],
-					[CertificateName]
+					[CertificateName],
+					[Description]
 				FROM
 					[dbo].[CourseCertificate]
 				WHERE
@@ -1174,6 +1181,7 @@
 				<parameter name="@SearchUsingOR" type="bit" direction="Input" size="0" precision="1" scale="0" param="" nulldefault="null"/>
 				<parameter name="@CertificateId" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault="null"/>
 				<parameter name="@CertificateName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Description" type="nvarchar" direction="Input" size="1024" precision="0" scale="0" param="(1024)" nulldefault="null"/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -1182,11 +1190,13 @@
     SELECT
 	  [CertificateId]
 	, [CertificateName]
+	, [Description]
     FROM
 	[dbo].[CourseCertificate]
     WHERE 
 	 ([CertificateId] = @CertificateId OR @CertificateId IS NULL)
 	AND ([CertificateName] = @CertificateName OR @CertificateName IS NULL)
+	AND ([Description] = @Description OR @Description IS NULL)
 						
   END
   ELSE
@@ -1194,11 +1204,13 @@
     SELECT
 	  [CertificateId]
 	, [CertificateName]
+	, [Description]
     FROM
 	[dbo].[CourseCertificate]
     WHERE 
 	 ([CertificateId] = @CertificateId AND @CertificateId is not null)
 	OR ([CertificateName] = @CertificateName AND @CertificateName is not null)
+	OR ([Description] = @Description AND @Description is not null)
 	SELECT @@ROWCOUNT			
   END
 				]]></body>
@@ -1233,7 +1245,7 @@
 				ORDER BY {1}
 				
 				-- Return paged results
-				SELECT O.[CertificateId], O.[CertificateName]
+				SELECT O.[CertificateId], O.[CertificateName], O.[Description]
 				FROM
 				    [dbo].[CourseCertificate] O,
 				    #PageIndex PageIndex

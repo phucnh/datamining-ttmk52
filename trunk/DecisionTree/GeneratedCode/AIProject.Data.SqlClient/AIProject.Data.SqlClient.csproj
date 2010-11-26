@@ -1,30 +1,29 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8996A7B4-57D3-440B-A545-A701844B8C4A}</ProjectGuid>
     <ProjectType>Local</ProjectType>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <OutputType>Library</OutputType>
     <ApplicationIcon>
-    </ApplicationIcon>
+	</ApplicationIcon>
     <AssemblyKeyContainerName>
-    </AssemblyKeyContainerName>
+	</AssemblyKeyContainerName>
     <AssemblyName>AIProject.Data.SqlClient</AssemblyName>
     <AssemblyOriginatorKeyFile>..\AIProject.snk</AssemblyOriginatorKeyFile>
-    <SignAssembly>false</SignAssembly>
+	<SignAssembly>true</SignAssembly>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <RootNamespace>AIProject.Data.SqlClient</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>
-    </StartupObject>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
+    <StartupObject></StartupObject>
+    <FileUpgradeFlags></FileUpgradeFlags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -55,7 +54,7 @@
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE</DefineConstants>
     <DocumentationFile>AIProject.Data.SqlClient.xml</DocumentationFile>
-    <DebugType>pdbonly</DebugType>
+	 <DebugType>pdbonly</DebugType>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -88,145 +87,183 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Web" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Design" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System"/>
+	<Reference Include="System.Core">
+		<RequiredTargetFramework>3.5</RequiredTargetFramework>
+	</Reference>
+    <Reference Include="System.Web"/>
+    <Reference Include="System.Data"/>
+    <Reference Include="System.Design"/>
+    <Reference Include="System.Xml"/>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Drawing" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
-    </Reference>
+    </Reference>    
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+	<Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
     </Reference>
-    <ProjectReference Include="..\AIProject.Entities\AIProject.Entities.csproj">
+     
+	<ProjectReference Include="..\AIProject.Entities\AIProject.Entities.csproj">
       <Name>AIProject.Entities</Name>
       <Project>{20E43088-4618-4F4A-B8AD-FC31B50D94CD}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
+	
     <ProjectReference Include="..\AIProject.Data\AIProject.Data.csproj">
-      <Name>AIProject.Data</Name>
-      <Project>{041C1BBE-0BFB-4D45-8125-9AB0BBC09A92}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+        <Name>AIProject.Data</Name>
+        <Project>{041C1BBE-0BFB-4D45-8125-9AB0BBC09A92}</Project>
+        <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-  </ItemGroup>
-  <!-- Custom code folder: B:\Tai Lieu\Hoctap\20101\Course Project\AI\DecisionTree\GeneratedCode\AIProject.Data.SqlClient\App_Code -->
-  <ItemGroup>
-    <Compile Include="App_Code\**\*.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include any user files -->
-  <ItemGroup>
-    <Compile Include="**\*.user.*" Exclude="**\*.csproj.user;**\.svn\**">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="SqlClassArrangementProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlClassArrangementProviderBase.generated.cs">
-      <DependentUpon>SqlClassArrangementProvider.cs</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlClassDetailsProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlClassDetailsProviderBase.generated.cs">
-      <DependentUpon>SqlClassDetailsProvider.cs</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlClassTimeProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlClassTimeProviderBase.generated.cs">
-      <DependentUpon>SqlClassTimeProvider.cs</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlCourseCertificateProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlCourseCertificateProviderBase.generated.cs">
-      <DependentUpon>SqlCourseCertificateProvider.cs</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlCourseDetailsProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlCourseDetailsProviderBase.generated.cs">
-      <DependentUpon>SqlCourseDetailsProvider.cs</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlCourseGroupProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlCourseGroupProviderBase.generated.cs">
-      <DependentUpon>SqlCourseGroupProvider.cs</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlCustomerDetailsProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlCustomerDetailsProviderBase.generated.cs">
-      <DependentUpon>SqlCustomerDetailsProvider.cs</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlOccupationTypeProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlOccupationTypeProviderBase.generated.cs">
-      <DependentUpon>SqlOccupationTypeProvider.cs</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlTeacherDetailsProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlTeacherDetailsProviderBase.generated.cs">
-      <DependentUpon>SqlTeacherDetailsProvider.cs</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="..\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SqlNetTiersProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <!--<Compile Include="SqlDataRepository.cs">
+	
+	
+	
+    
+    	
+	
+	
+	
+	</ItemGroup>
+	
+		
+	<!-- Custom code folder: B:\Tai Lieu\Hoctap\20101\Course Project\AI\DecisionTree\GeneratedCode\AIProject.Data.SqlClient\App_Code -->
+	<ItemGroup>	
+		<Folder Include="App_Code\" />
+        <Compile Include="App_Code\**\*.cs">
+          <SubType>Code</SubType>
+        </Compile>		
+	</ItemGroup>
+
+	<!-- Include any user files -->
+	<ItemGroup>	
+		<Compile Include="**\*.user.*" Exclude="**\*.csproj.user;**\.svn\**" >
+          <SubType>Code</SubType>
+        </Compile>		
+	</ItemGroup>
+	
+	<ItemGroup>
+			<Compile Include="SqlClassArrangementProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlClassArrangementProviderBase.generated.cs">
+			  <DependentUpon>SqlClassArrangementProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="SqlClassDetailsProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlClassDetailsProviderBase.generated.cs">
+			  <DependentUpon>SqlClassDetailsProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="SqlClassTimeProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlClassTimeProviderBase.generated.cs">
+			  <DependentUpon>SqlClassTimeProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="SqlCourseCertificateProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlCourseCertificateProviderBase.generated.cs">
+			  <DependentUpon>SqlCourseCertificateProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="SqlCourseDetailsProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlCourseDetailsProviderBase.generated.cs">
+			  <DependentUpon>SqlCourseDetailsProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="SqlCourseGroupProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlCourseGroupProviderBase.generated.cs">
+			  <DependentUpon>SqlCourseGroupProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="SqlCustomerDetailsProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlCustomerDetailsProviderBase.generated.cs">
+			  <DependentUpon>SqlCustomerDetailsProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="SqlOccupationTypeProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlOccupationTypeProviderBase.generated.cs">
+			  <DependentUpon>SqlOccupationTypeProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="SqlTeacherDetailsProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlTeacherDetailsProviderBase.generated.cs">
+			  <DependentUpon>SqlTeacherDetailsProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+		<Compile Include="..\AssemblyInfo.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+			
+
+			<Compile Include="SqlNetTiersProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<!--<Compile Include="SqlDataRepository.cs">
 			  <SubType>Code</SubType>
 			</Compile>-->
-    <EmbeddedResource Include="Procedures.xml">
-      <SubType>EmbeddedResource</SubType>
-    </EmbeddedResource>
-    <Compile Include="StoredProcedureProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\AIProject.snk">
-      <Link>AIProject.snk</Link>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Code\" />
-  </ItemGroup>
+						
+			<EmbeddedResource Include="Procedures.xml">
+		      <SubType>EmbeddedResource</SubType>
+		    </EmbeddedResource>
+			
+			<Compile Include="StoredProcedureProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>			
+		
+		
+
+		
+		
+		
+		
+		 <AppDesigner Include="Properties\" />
+	</ItemGroup>
+	
+	
+	
+		<ItemGroup>
+			<None Include="..\AIProject.snk">
+				<Link>AIProject.snk</Link>
+			</None>
+		</ItemGroup>
+	
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+	<PostBuildEvent>
+	</PostBuildEvent>
   </PropertyGroup>
+
 </Project>

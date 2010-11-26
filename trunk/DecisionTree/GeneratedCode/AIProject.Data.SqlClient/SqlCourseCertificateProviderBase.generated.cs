@@ -177,6 +177,7 @@ namespace AIProject.Data.SqlClient
 		
 		database.AddInParameter(commandWrapper, "@CertificateId", DbType.Int32, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@CertificateName", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Description", DbType.String, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
 			whereClause = whereClause.Replace(" AND ", "|").Replace(" OR ", "|") ; 
@@ -201,6 +202,12 @@ namespace AIProject.Data.SqlClient
 				{
 					database.SetParameterValue(commandWrapper, "@CertificateName", 
 						clause.Trim().Remove(0,15).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("description ") || clause.Trim().StartsWith("description="))
+				{
+					database.SetParameterValue(commandWrapper, "@Description", 
+						clause.Trim().Remove(0,11).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
 					continue;
 				}
 	
@@ -592,9 +599,12 @@ namespace AIProject.Data.SqlClient
 			col0.AllowDBNull = false;		
 			DataColumn col1 = dataTable.Columns.Add("CertificateName", typeof(System.String));
 			col1.AllowDBNull = true;		
+			DataColumn col2 = dataTable.Columns.Add("Description", typeof(System.String));
+			col2.AllowDBNull = true;		
 			
 			bulkCopy.ColumnMappings.Add("CertificateId", "CertificateId");
 			bulkCopy.ColumnMappings.Add("CertificateName", "CertificateName");
+			bulkCopy.ColumnMappings.Add("Description", "Description");
 			
 			foreach(AIProject.Entities.CourseCertificate entity in entities)
 			{
@@ -607,6 +617,9 @@ namespace AIProject.Data.SqlClient
 							
 				
 					row["CertificateName"] = entity.CertificateName;
+							
+				
+					row["Description"] = entity.Description;
 							
 				
 				dataTable.Rows.Add(row);
@@ -645,6 +658,7 @@ namespace AIProject.Data.SqlClient
 			
 			database.AddOutParameter(commandWrapper, "@CertificateId", DbType.Int32, 4);
 			database.AddInParameter(commandWrapper, "@CertificateName", DbType.String, entity.CertificateName );
+			database.AddInParameter(commandWrapper, "@Description", DbType.String, entity.Description );
 			
 			int results = 0;
 			
@@ -695,6 +709,7 @@ namespace AIProject.Data.SqlClient
 			
 			database.AddInParameter(commandWrapper, "@CertificateId", DbType.Int32, entity.CertificateId );
 			database.AddInParameter(commandWrapper, "@CertificateName", DbType.String, entity.CertificateName );
+			database.AddInParameter(commandWrapper, "@Description", DbType.String, entity.Description );
 			
 			int results = 0;
 			
