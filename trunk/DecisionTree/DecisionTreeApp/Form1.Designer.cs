@@ -284,7 +284,7 @@
             this.zoomBar.Size = new System.Drawing.Size(397, 23);
             this.zoomBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.zoomBar.TabIndex = 3;
-            this.zoomBar.Text = "slider1";
+            this.zoomBar.Text = "Zoom";
             this.zoomBar.Value = 100;
             this.zoomBar.ValueChanged += new System.EventHandler(this.zoomBar_ValueChanged);
             // 

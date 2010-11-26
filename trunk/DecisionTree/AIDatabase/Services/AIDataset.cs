@@ -35,7 +35,7 @@ namespace AIDT.AIDatabase.Services
                                             courseDetails.CourseName,
                                             CourseCertificate = courseCertificates.CertificateName,
                                             GroupName = courseGroups.Name,
-                                            classDetails.ClassName,
+                                            courseDetails.CourseFee,
                                             classTimes.TimeName,
                                             teacherDetails.TeacherName,
                                             IsStudentLearned = (occupationTypes.OccupationName == "Sinh Viên") ? "True" : "False"
@@ -46,13 +46,13 @@ namespace AIDT.AIDatabase.Services
                 _dataTable.Columns.Add("CourseName");
                 _dataTable.Columns.Add("CourseCertificate");
                 _dataTable.Columns.Add("GroupName");
-                _dataTable.Columns.Add("ClassName");
+                _dataTable.Columns.Add("CourseFee");
                 _dataTable.Columns.Add("TimeName");
                 _dataTable.Columns.Add("IsStudentLearned");
 
                 foreach (var p in _data)
                 {
-                    string[] _tempStr = { p.CourseName, p.CourseCertificate, p.GroupName, p.ClassName, p.TimeName, p.IsStudentLearned };
+                    string[] _tempStr = { p.CourseName, p.CourseCertificate, p.GroupName, p.CourseFee.ToString(), p.TimeName, p.IsStudentLearned };
                     _dataTable.Rows.Add(_tempStr);
                 }
 
@@ -89,7 +89,7 @@ namespace AIDT.AIDatabase.Services
                                  courseDetails.CourseName,
                                  CourseCertificate = courseCertificates.CertificateName,
                                  GroupName = courseGroups.Name,
-                                 classDetails.ClassName,
+                                 courseDetails.CourseFee,
                                  classTimes.TimeName,
                                  teacherDetails.TeacherName,
                                  IsStudentLearned = (occupationTypes.OccupationName == "Sinh Viên")?"True":"False"
@@ -100,7 +100,7 @@ namespace AIDT.AIDatabase.Services
                 _dataTable.Columns.Add("CourseName");
                 _dataTable.Columns.Add("CourseCertificate");
                 _dataTable.Columns.Add("GroupName");
-                _dataTable.Columns.Add("ClassName");
+                _dataTable.Columns.Add("CourseFee");
                 _dataTable.Columns.Add("TimeName");
                 _dataTable.Columns.Add("IsStudentLearned");
 
@@ -108,12 +108,43 @@ namespace AIDT.AIDatabase.Services
 
                 foreach (var p in _randomData)
                 {
-                    string[] _tempStr = { p.CourseName, p.CourseCertificate, p.GroupName, p.ClassName, p.TimeName, p.IsStudentLearned };
+                    string[] _tempStr = { p.CourseName, p.CourseCertificate, p.GroupName, p.CourseFee.ToString(), p.TimeName, p.IsStudentLearned };
                     _dataTable.Rows.Add(_tempStr);
                 }
 
                 return _dataTable;
             }
         }
+
+        public static string[] MakeRecord(ClassDetail classDetails)
+        {
+            using (EntitiesDataContext db = new EntitiesDataContext())
+            {
+                var _data = (from courseDetails in db.CourseDetails
+                             from courseGroups in db.CourseGroups
+                             from classTimes in db.ClassTimes
+                             from teacherDetails in db.TeacherDetails
+                             from courseCertificates in db.CourseCertificates
+                             where (
+                             (classDetails.ClassTime == classTimes.ClassTimeId) &&
+                             (classDetails.CourseId == courseDetails.CourseId) &&
+                             (courseDetails.CourseGroup == courseGroups.CourseGroupId) &&
+                             (teacherDetails.TeacherId == classDetails.TeacherId) &&
+                             (courseCertificates.CertificateId == courseDetails.CourseCertificate))
+                             select new
+                             {
+                                 courseDetails.CourseName,
+                                 CourseCertificate = courseCertificates.CertificateName,
+                                 GroupName = courseGroups.Name,
+                                 courseDetails.CourseFee,
+                                 classTimes.TimeName,
+                                 teacherDetails.TeacherName,
+                             }).Single();
+                string[] _returnValue = { _data.CourseName, _data.CourseCertificate, _data.GroupName,_data.CourseFee.ToString(), _data.TimeName, _data.TeacherName };
+
+                return _returnValue;
+            }
+        }
+
     }
 }
