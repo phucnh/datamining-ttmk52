@@ -349,6 +349,15 @@ namespace AIProject.Web.UI
 		{
 			get { return _entity.CertificateName; }
 		}
+        /// <summary>
+        /// Gets the Description
+        /// </summary>
+        /// <value>The Description.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Description
+		{
+			get { return _entity.Description; }
+		}
 
         /// <summary>
         /// Gets a <see cref="T:AIProject.Entities.CourseCertificate"></see> object
