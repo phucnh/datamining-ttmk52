@@ -53,10 +53,12 @@ namespace AIProject.Services
 		/// A simple factory method to create a new <see cref="CourseCertificate"/> instance.
 		///</summary>
 		///<param name="_certificateName"></param>
-		public static CourseCertificate CreateCourseCertificate(System.String _certificateName)
+		///<param name="_description"></param>
+		public static CourseCertificate CreateCourseCertificate(System.String _certificateName, System.String _description)
 		{
 			CourseCertificate newEntityCourseCertificate = new CourseCertificate();
 			newEntityCourseCertificate.CertificateName  = _certificateName;
+			newEntityCourseCertificate.Description  = _description;
 			return newEntityCourseCertificate;
 		}
 		#endregion Constructors

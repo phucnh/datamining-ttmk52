@@ -82,22 +82,26 @@ namespace AIProject.Entities
 		/// Creates a new <see cref="CourseCertificateBase"/> instance.
 		///</summary>
 		///<param name="_certificateName"></param>
-		public CourseCertificateBase(System.String _certificateName)
+		///<param name="_description"></param>
+		public CourseCertificateBase(System.String _certificateName, System.String _description)
 		{
 			this.entityData = new CourseCertificateEntityData();
 			this.backupData = null;
 
 			this.CertificateName = _certificateName;
+			this.Description = _description;
 		}
 		
 		///<summary>
 		/// A simple factory method to create a new <see cref="CourseCertificate"/> instance.
 		///</summary>
 		///<param name="_certificateName"></param>
-		public static CourseCertificate CreateCourseCertificate(System.String _certificateName)
+		///<param name="_description"></param>
+		public static CourseCertificate CreateCourseCertificate(System.String _certificateName, System.String _description)
 		{
 			CourseCertificate newCourseCertificate = new CourseCertificate();
 			newCourseCertificate.CertificateName = _certificateName;
+			newCourseCertificate.Description = _description;
 			return newCourseCertificate;
 		}
 				
@@ -177,6 +181,41 @@ namespace AIProject.Entities
 			}
 		}
 		
+		/// <summary>
+		/// 	Gets or sets the Description property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 1024)]
+		public virtual System.String Description
+		{
+			get
+			{
+				return this.entityData.Description; 
+			}
+			
+			set
+			{
+				if (this.entityData.Description == value)
+					return;
+					
+				OnColumnChanging(CourseCertificateColumn.Description, this.entityData.Description);
+				this.entityData.Description = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(CourseCertificateColumn.Description, this.entityData.Description);
+				OnPropertyChanged("Description");
+			}
+		}
+		
 		#endregion Data Properties		
 
 		#region Source Foreign Key Property
@@ -209,6 +248,8 @@ namespace AIProject.Entities
 			//Validation rules based on database schema.
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("CertificateName", "Certificate Name", 50));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("Description", "Description", 1024));
 		}
    		#endregion
 		
@@ -230,7 +271,7 @@ namespace AIProject.Entities
 		{
 			get
 			{
-				return new string[] {"CertificateId", "CertificateName"};
+				return new string[] {"CertificateId", "CertificateName", "Description"};
 			}
 		}
 		#endregion 
@@ -380,6 +421,7 @@ namespace AIProject.Entities
 			copy.SuppressEntityEvents = true;
 				copy.CertificateId = this.CertificateId;
 				copy.CertificateName = this.CertificateName;
+				copy.Description = this.Description;
 			
 		
 			//deep copy nested objects
@@ -518,6 +560,8 @@ namespace AIProject.Entities
 					return entityData.CertificateId != _originalData.CertificateId;
 					case CourseCertificateColumn.CertificateName:
 					return entityData.CertificateName != _originalData.CertificateName;
+					case CourseCertificateColumn.Description:
+					return entityData.Description != _originalData.Description;
 			
 				default:
 					return false;
@@ -547,6 +591,7 @@ namespace AIProject.Entities
 			bool result = false;
 			result = result || entityData.CertificateId != _originalData.CertificateId;
 			result = result || entityData.CertificateName != _originalData.CertificateName;
+			result = result || entityData.Description != _originalData.Description;
 			return result;
 		}	
 		
@@ -557,7 +602,8 @@ namespace AIProject.Entities
 		{
 			if (_originalData != null)
 				return CreateCourseCertificate(
-				_originalData.CertificateName
+				_originalData.CertificateName,
+				_originalData.Description
 				);
 				
 			return (CourseCertificate)this.Clone();
@@ -588,7 +634,8 @@ namespace AIProject.Entities
         public override int GetHashCode()
         {
 			return this.CertificateId.GetHashCode() ^ 
-					((this.CertificateName == null) ? string.Empty : this.CertificateName.ToString()).GetHashCode();
+					((this.CertificateName == null) ? string.Empty : this.CertificateName.ToString()).GetHashCode() ^ 
+					((this.Description == null) ? string.Empty : this.Description.ToString()).GetHashCode();
         }
 		
 		///<summary>
@@ -629,6 +676,15 @@ namespace AIProject.Entities
 					equal = false;
 			}
 			else if (Object1.CertificateName == null ^ Object2.CertificateName == null )
+			{
+				equal = false;
+			}
+			if ( Object1.Description != null && Object2.Description != null )
+			{
+				if (Object1.Description != Object2.Description)
+					equal = false;
+			}
+			else if (Object1.Description == null ^ Object2.Description == null )
 			{
 				equal = false;
 			}
@@ -684,6 +740,12 @@ namespace AIProject.Entities
             	
             	case CourseCertificateColumn.CertificateName:
             		return this.CertificateName.CompareTo(rhs.CertificateName);
+            		
+            		                 
+            	
+            	
+            	case CourseCertificateColumn.Description:
+            		return this.Description.CompareTo(rhs.Description);
             		
             		                 
             }
@@ -820,9 +882,10 @@ namespace AIProject.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{3}{2}- CertificateId: {0}{2}- CertificateName: {1}{2}{4}", 
+				"{4}{3}- CertificateId: {0}{3}- CertificateName: {1}{3}- Description: {2}{3}{5}", 
 				this.CertificateId,
 				(this.CertificateName == null) ? string.Empty : this.CertificateName.ToString(),
+				(this.Description == null) ? string.Empty : this.Description.ToString(),
 				System.Environment.NewLine, 
 				this.GetType(),
 				this.Error.Length == 0 ? string.Empty : string.Format("- Error: {0}\n",this.Error));
@@ -861,6 +924,11 @@ namespace AIProject.Entities
 		/// CertificateName : 
 		/// </summary>
 		public System.String		  CertificateName = null;
+		
+		/// <summary>
+		/// Description : 
+		/// </summary>
+		public System.String		  Description = null;
 		#endregion
 			
 		#region Source Foreign Key Property
@@ -910,6 +978,7 @@ namespace AIProject.Entities
 			_tmp.CertificateId = this.CertificateId;
 			
 			_tmp.CertificateName = this.CertificateName;
+			_tmp.Description = this.Description;
 			
 			#region Source Parent Composite Entities
 			#endregion
@@ -940,6 +1009,7 @@ namespace AIProject.Entities
 			_tmp.CertificateId = this.CertificateId;
 			
 			_tmp.CertificateName = this.CertificateName;
+			_tmp.Description = this.Description;
 			
 			#region Source Parent Composite Entities
 			#endregion
@@ -1326,7 +1396,13 @@ namespace AIProject.Entities
 		/// </summary>
 		[EnumTextValue("CertificateName")]
 		[ColumnEnum("CertificateName", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
-		CertificateName = 2
+		CertificateName = 2,
+		/// <summary>
+		/// Description : 
+		/// </summary>
+		[EnumTextValue("Description")]
+		[ColumnEnum("Description", typeof(System.String), System.Data.DbType.String, false, false, true, 1024)]
+		Description = 3
 	}//End enum
 
 	#endregion CourseCertificateColumn Enum

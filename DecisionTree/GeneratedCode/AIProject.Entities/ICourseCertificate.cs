@@ -23,6 +23,11 @@ namespace AIProject.Entities
 		/// CertificateName : 
 		/// </summary>
 		System.String  CertificateName  { get; set; }
+		
+		/// <summary>
+		/// Description : 
+		/// </summary>
+		System.String  Description  { get; set; }
 			
 		/// <summary>
 		/// Creates a new object that is a copy of the current instance.
