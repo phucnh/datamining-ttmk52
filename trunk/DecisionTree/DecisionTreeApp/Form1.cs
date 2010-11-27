@@ -130,9 +130,9 @@ namespace AIDT.DecisionTreeApp
                 StringBuilder _format = new StringBuilder(String.Empty);
                 //_format.AppendFormat("( {0} ) {1} ", root.NodeValue, root.NodeName);
                 if (root.ResultValue == null)
-                    _format.AppendFormat("( {0} ) {1} ", root.NodeValue, root.NodeName);
+                    _format.AppendFormat("( Parent value: {0} ) {1} ",root.NodeValue, root.NodeName);
                 else
-                    _format.AppendFormat("( {0} ) {1}. Result: {2}. Native Result: {3} ",
+                    _format.AppendFormat("( Parent value: {0} ) {1}. Sinh viên: {2}. Đi làm: {3} ",
                         root.NodeValue,
                         root.NodeName,
                         root.ResultValue[0].ToString(),

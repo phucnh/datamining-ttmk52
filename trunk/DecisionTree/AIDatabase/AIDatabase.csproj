@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Services\AIDataset.cs" />
     <Compile Include="Services\CourseDetailsServices.cs" />
+    <Compile Include="Services\CustomerDetailsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entities.dbml">

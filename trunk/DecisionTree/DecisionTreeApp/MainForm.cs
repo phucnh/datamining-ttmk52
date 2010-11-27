@@ -14,7 +14,6 @@ namespace AIDT.DecisionTreeApp
     public partial class MainForm : DevComponents.DotNetBar.Office2007RibbonForm
     {
         private DataTable _fullDataset;
-        private DataTable _randomDataset;
         public static DecisionTree.ID3DecisionTree decisionTree;
 
         public MainForm()
@@ -24,7 +23,7 @@ namespace AIDT.DecisionTreeApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _fullDataset = AIDatabase.Services.AIDataset.MakeRandomDataset();
+            _fullDataset = AIDatabase.Services.AIDataset.MakeFullDataSet();
             if (_fullDataset != null)
                 dgrvDataset.DataSource = _fullDataset;
         }

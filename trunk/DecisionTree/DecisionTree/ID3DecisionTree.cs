@@ -51,7 +51,7 @@ namespace DecisionTree
 
         public Tree MakeTreeWithID3(DataTable dataTable)
         {
-            if (dataTable.Columns.Count == 0) return null;
+            if (dataTable.Columns.Count <= 1) return null;
 
             Tree _tree;
             _tree = CreateTree(dataTable);
@@ -60,9 +60,10 @@ namespace DecisionTree
 
             for (int i = 0; i < _tree.Root.Childs.Count; i++)
             {
+                DataTable _tempData = dataTable.Copy();
                 if (!CheckNodeValueIsOneResult(_tree.Root.Childs[i]))
                 {
-                    Tree _treeTemp = MakeTreeWithID3(ResizeDataTable(dataTable, _tree.Root.NodeName, _tree.Root.Childs[i].NodeValue)); //remove row and column (Root Name) in here
+                    Tree _treeTemp = MakeTreeWithID3(ResizeDataTable(_tempData, _tree.Root.NodeName, _tree.Root.Childs[i].NodeValue)); //remove row and column (Root Name) in here
                     if (_treeTemp != null)
                     {
                         _tree.Root.Childs[i].NodeName = _treeTemp.Root.NodeName;
@@ -85,6 +86,8 @@ namespace DecisionTree
 
         private DataTable ResizeDataTable(DataTable _dataTable, string _columnName, string _value)
         {
+            //if (_dataTable.Columns.Count <= 1) return _dataTable;
+
             DataTable _dataTableTemp = _dataTable;
 
             int _columnCount = _dataTableTemp.Columns[_columnName].Ordinal;
