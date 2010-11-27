@@ -42,7 +42,9 @@
             this.elementStyle6 = new DevComponents.Tree.ElementStyle();
             this.zoomBar = new DevComponents.DotNetBar.Controls.Slider();
             this.labelZoom = new DevComponents.DotNetBar.LabelX();
+            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             ((System.ComponentModel.ISupportInitialize)(this.decisionTree)).BeginInit();
+            this.groupPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // node1
@@ -58,7 +60,7 @@
             this.decisionTree.CommandMouseOverBackColor2SchemePart = DevComponents.Tree.eColorSchemePart.ItemHotBackground2;
             this.decisionTree.CommandMouseOverBackColorGradientAngle = 90;
             this.decisionTree.ExpandLineColorSchemePart = DevComponents.Tree.eColorSchemePart.BarPopupBackground;
-            this.decisionTree.Location = new System.Drawing.Point(17, 57);
+            this.decisionTree.Location = new System.Drawing.Point(3, 3);
             this.decisionTree.Name = "decisionTree";
             this.decisionTree.Nodes.AddRange(new DevComponents.Tree.Node[] {
             this.node2});
@@ -71,7 +73,7 @@
             this.decisionTree.PathSeparator = ";";
             this.decisionTree.RenderMode = DevComponents.Tree.eNodeRenderMode.Professional;
             this.decisionTree.RootConnector = this.nodeConnector1;
-            this.decisionTree.Size = new System.Drawing.Size(1091, 533);
+            this.decisionTree.Size = new System.Drawing.Size(1148, 572);
             this.decisionTree.Styles.Add(this.elementStyle1);
             this.decisionTree.Styles.Add(this.elementStyle2);
             this.decisionTree.Styles.Add(this.elementStyle3);
@@ -92,7 +94,7 @@
             this.node2.StyleExpanded = this.elementStyle5;
             this.node2.StyleMouseOver = this.elementStyle7;
             this.node2.StyleSelected = this.elementStyle7;
-            this.node2.Text = "node2";
+            this.node2.Text = "DecisionTree";
             // 
             // elementStyle5
             // 
@@ -278,7 +280,7 @@
             // 
             this.zoomBar.BackgroundStyle.Class = "";
             this.zoomBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.zoomBar.Location = new System.Drawing.Point(294, 13);
+            this.zoomBar.Location = new System.Drawing.Point(679, 12);
             this.zoomBar.Maximum = 500;
             this.zoomBar.Name = "zoomBar";
             this.zoomBar.Size = new System.Drawing.Size(397, 23);
@@ -295,27 +297,70 @@
             // 
             this.labelZoom.BackgroundStyle.Class = "";
             this.labelZoom.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelZoom.Location = new System.Drawing.Point(697, 13);
+            this.labelZoom.Location = new System.Drawing.Point(1082, 12);
             this.labelZoom.Name = "labelZoom";
             this.labelZoom.Size = new System.Drawing.Size(75, 23);
             this.labelZoom.TabIndex = 4;
             this.labelZoom.Text = "labelX1";
+            // 
+            // groupPanel1
+            // 
+            this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.decisionTree);
+            this.groupPanel1.Location = new System.Drawing.Point(3, 42);
+            this.groupPanel1.Name = "groupPanel1";
+            this.groupPanel1.Size = new System.Drawing.Size(1163, 602);
+            // 
+            // 
+            // 
+            this.groupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel1.Style.BackColorGradientAngle = 90;
+            this.groupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderBottomWidth = 1;
+            this.groupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderLeftWidth = 1;
+            this.groupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderRightWidth = 1;
+            this.groupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderTopWidth = 1;
+            this.groupPanel1.Style.Class = "";
+            this.groupPanel1.Style.CornerDiameter = 4;
+            this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseDown.Class = "";
+            this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseOver.Class = "";
+            this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel1.TabIndex = 0;
+            this.groupPanel1.Text = "DecisionTree";
             // 
             // frmDecisionTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(1125, 617);
+            this.ClientSize = new System.Drawing.Size(1169, 647);
+            this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.labelZoom);
             this.Controls.Add(this.zoomBar);
-            this.Controls.Add(this.decisionTree);
             this.DoubleBuffered = true;
             this.Name = "frmDecisionTree";
             this.Opacity = 0.9;
             this.Text = "Decision Tree";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.decisionTree)).EndInit();
+            this.groupPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -336,6 +381,7 @@
         private DevComponents.Tree.ElementStyle elementStyle6;
         private DevComponents.DotNetBar.Controls.Slider zoomBar;
         private DevComponents.DotNetBar.LabelX labelZoom;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
 
     }
 }
