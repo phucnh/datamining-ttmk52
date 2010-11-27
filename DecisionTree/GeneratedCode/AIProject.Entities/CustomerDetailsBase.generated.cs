@@ -84,7 +84,10 @@ namespace AIProject.Entities
 		///<param name="_name"></param>
 		///<param name="_birthday"></param>
 		///<param name="_occupationTypeId"></param>
-		public CustomerDetailsBase(System.String _name, System.DateTime? _birthday, System.Int32? _occupationTypeId)
+		///<param name="_email"></param>
+		///<param name="_phoneNumber"></param>
+		public CustomerDetailsBase(System.String _name, System.DateTime? _birthday, System.Int32? _occupationTypeId, 
+			System.String _email, System.String _phoneNumber)
 		{
 			this.entityData = new CustomerDetailsEntityData();
 			this.backupData = null;
@@ -92,6 +95,8 @@ namespace AIProject.Entities
 			this.Name = _name;
 			this.Birthday = _birthday;
 			this.OccupationTypeId = _occupationTypeId;
+			this.Email = _email;
+			this.PhoneNumber = _phoneNumber;
 		}
 		
 		///<summary>
@@ -100,12 +105,17 @@ namespace AIProject.Entities
 		///<param name="_name"></param>
 		///<param name="_birthday"></param>
 		///<param name="_occupationTypeId"></param>
-		public static CustomerDetails CreateCustomerDetails(System.String _name, System.DateTime? _birthday, System.Int32? _occupationTypeId)
+		///<param name="_email"></param>
+		///<param name="_phoneNumber"></param>
+		public static CustomerDetails CreateCustomerDetails(System.String _name, System.DateTime? _birthday, System.Int32? _occupationTypeId, 
+			System.String _email, System.String _phoneNumber)
 		{
 			CustomerDetails newCustomerDetails = new CustomerDetails();
 			newCustomerDetails.Name = _name;
 			newCustomerDetails.Birthday = _birthday;
 			newCustomerDetails.OccupationTypeId = _occupationTypeId;
+			newCustomerDetails.Email = _email;
+			newCustomerDetails.PhoneNumber = _phoneNumber;
 			return newCustomerDetails;
 		}
 				
@@ -259,6 +269,76 @@ namespace AIProject.Entities
 			}
 		}
 		
+		/// <summary>
+		/// 	Gets or sets the Email property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 1024)]
+		public virtual System.String Email
+		{
+			get
+			{
+				return this.entityData.Email; 
+			}
+			
+			set
+			{
+				if (this.entityData.Email == value)
+					return;
+					
+				OnColumnChanging(CustomerDetailsColumn.Email, this.entityData.Email);
+				this.entityData.Email = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(CustomerDetailsColumn.Email, this.entityData.Email);
+				OnPropertyChanged("Email");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the PhoneNumber property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 50)]
+		public virtual System.String PhoneNumber
+		{
+			get
+			{
+				return this.entityData.PhoneNumber; 
+			}
+			
+			set
+			{
+				if (this.entityData.PhoneNumber == value)
+					return;
+					
+				OnColumnChanging(CustomerDetailsColumn.PhoneNumber, this.entityData.PhoneNumber);
+				this.entityData.PhoneNumber = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(CustomerDetailsColumn.PhoneNumber, this.entityData.PhoneNumber);
+				OnPropertyChanged("PhoneNumber");
+			}
+		}
+		
 		#endregion Data Properties		
 
 		#region Source Foreign Key Property
@@ -302,6 +382,10 @@ namespace AIProject.Entities
 			//Validation rules based on database schema.
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("Name", "Name", 50));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("Email", "Email", 1024));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("PhoneNumber", "Phone Number", 50));
 		}
    		#endregion
 		
@@ -323,7 +407,7 @@ namespace AIProject.Entities
 		{
 			get
 			{
-				return new string[] {"CustomerId", "Name", "Birthday", "OccupationTypeId"};
+				return new string[] {"CustomerId", "Name", "Birthday", "OccupationTypeId", "Email", "PhoneNumber"};
 			}
 		}
 		#endregion 
@@ -475,6 +559,8 @@ namespace AIProject.Entities
 				copy.Name = this.Name;
 				copy.Birthday = this.Birthday;
 				copy.OccupationTypeId = this.OccupationTypeId;
+				copy.Email = this.Email;
+				copy.PhoneNumber = this.PhoneNumber;
 			
 			if (this.OccupationTypeIdSource != null && existingCopies.Contains(this.OccupationTypeIdSource))
 				copy.OccupationTypeIdSource = existingCopies[this.OccupationTypeIdSource] as OccupationType;
@@ -621,6 +707,10 @@ namespace AIProject.Entities
 					return entityData.Birthday != _originalData.Birthday;
 					case CustomerDetailsColumn.OccupationTypeId:
 					return entityData.OccupationTypeId != _originalData.OccupationTypeId;
+					case CustomerDetailsColumn.Email:
+					return entityData.Email != _originalData.Email;
+					case CustomerDetailsColumn.PhoneNumber:
+					return entityData.PhoneNumber != _originalData.PhoneNumber;
 			
 				default:
 					return false;
@@ -652,6 +742,8 @@ namespace AIProject.Entities
 			result = result || entityData.Name != _originalData.Name;
 			result = result || entityData.Birthday != _originalData.Birthday;
 			result = result || entityData.OccupationTypeId != _originalData.OccupationTypeId;
+			result = result || entityData.Email != _originalData.Email;
+			result = result || entityData.PhoneNumber != _originalData.PhoneNumber;
 			return result;
 		}	
 		
@@ -664,7 +756,9 @@ namespace AIProject.Entities
 				return CreateCustomerDetails(
 				_originalData.Name,
 				_originalData.Birthday,
-				_originalData.OccupationTypeId
+				_originalData.OccupationTypeId,
+				_originalData.Email,
+				_originalData.PhoneNumber
 				);
 				
 			return (CustomerDetails)this.Clone();
@@ -697,7 +791,9 @@ namespace AIProject.Entities
 			return this.CustomerId.GetHashCode() ^ 
 					((this.Name == null) ? string.Empty : this.Name.ToString()).GetHashCode() ^ 
 					((this.Birthday == null) ? string.Empty : this.Birthday.ToString()).GetHashCode() ^ 
-					((this.OccupationTypeId == null) ? string.Empty : this.OccupationTypeId.ToString()).GetHashCode();
+					((this.OccupationTypeId == null) ? string.Empty : this.OccupationTypeId.ToString()).GetHashCode() ^ 
+					((this.Email == null) ? string.Empty : this.Email.ToString()).GetHashCode() ^ 
+					((this.PhoneNumber == null) ? string.Empty : this.PhoneNumber.ToString()).GetHashCode();
         }
 		
 		///<summary>
@@ -756,6 +852,24 @@ namespace AIProject.Entities
 					equal = false;
 			}
 			else if (Object1.OccupationTypeId == null ^ Object2.OccupationTypeId == null )
+			{
+				equal = false;
+			}
+			if ( Object1.Email != null && Object2.Email != null )
+			{
+				if (Object1.Email != Object2.Email)
+					equal = false;
+			}
+			else if (Object1.Email == null ^ Object2.Email == null )
+			{
+				equal = false;
+			}
+			if ( Object1.PhoneNumber != null && Object2.PhoneNumber != null )
+			{
+				if (Object1.PhoneNumber != Object2.PhoneNumber)
+					equal = false;
+			}
+			else if (Object1.PhoneNumber == null ^ Object2.PhoneNumber == null )
 			{
 				equal = false;
 			}
@@ -823,6 +937,18 @@ namespace AIProject.Entities
             	
             	case CustomerDetailsColumn.OccupationTypeId:
             		return this.OccupationTypeId.Value.CompareTo(rhs.OccupationTypeId.Value);
+            		
+            		                 
+            	
+            	
+            	case CustomerDetailsColumn.Email:
+            		return this.Email.CompareTo(rhs.Email);
+            		
+            		                 
+            	
+            	
+            	case CustomerDetailsColumn.PhoneNumber:
+            		return this.PhoneNumber.CompareTo(rhs.PhoneNumber);
             		
             		                 
             }
@@ -959,11 +1085,13 @@ namespace AIProject.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{5}{4}- CustomerId: {0}{4}- Name: {1}{4}- Birthday: {2}{4}- OccupationTypeId: {3}{4}{6}", 
+				"{7}{6}- CustomerId: {0}{6}- Name: {1}{6}- Birthday: {2}{6}- OccupationTypeId: {3}{6}- Email: {4}{6}- PhoneNumber: {5}{6}{8}", 
 				this.CustomerId,
 				(this.Name == null) ? string.Empty : this.Name.ToString(),
 				(this.Birthday == null) ? string.Empty : this.Birthday.ToString(),
 				(this.OccupationTypeId == null) ? string.Empty : this.OccupationTypeId.ToString(),
+				(this.Email == null) ? string.Empty : this.Email.ToString(),
+				(this.PhoneNumber == null) ? string.Empty : this.PhoneNumber.ToString(),
 				System.Environment.NewLine, 
 				this.GetType(),
 				this.Error.Length == 0 ? string.Empty : string.Format("- Error: {0}\n",this.Error));
@@ -1012,6 +1140,16 @@ namespace AIProject.Entities
 		/// OccupationTypeId : 
 		/// </summary>
 		public System.Int32?		  OccupationTypeId = null;
+		
+		/// <summary>
+		/// Email : 
+		/// </summary>
+		public System.String		  Email = null;
+		
+		/// <summary>
+		/// PhoneNumber : 
+		/// </summary>
+		public System.String		  PhoneNumber = null;
 		#endregion
 			
 		#region Source Foreign Key Property
@@ -1076,6 +1214,8 @@ namespace AIProject.Entities
 			_tmp.Name = this.Name;
 			_tmp.Birthday = this.Birthday;
 			_tmp.OccupationTypeId = this.OccupationTypeId;
+			_tmp.Email = this.Email;
+			_tmp.PhoneNumber = this.PhoneNumber;
 			
 			#region Source Parent Composite Entities
 			if (this.OccupationTypeIdSource != null)
@@ -1110,6 +1250,8 @@ namespace AIProject.Entities
 			_tmp.Name = this.Name;
 			_tmp.Birthday = this.Birthday;
 			_tmp.OccupationTypeId = this.OccupationTypeId;
+			_tmp.Email = this.Email;
+			_tmp.PhoneNumber = this.PhoneNumber;
 			
 			#region Source Parent Composite Entities
 			if (this.OccupationTypeIdSource != null && existingCopies.Contains(this.OccupationTypeIdSource))
@@ -1512,7 +1654,19 @@ namespace AIProject.Entities
 		/// </summary>
 		[EnumTextValue("OccupationTypeId")]
 		[ColumnEnum("OccupationTypeId", typeof(System.Int32), System.Data.DbType.Int32, false, false, true)]
-		OccupationTypeId = 4
+		OccupationTypeId = 4,
+		/// <summary>
+		/// Email : 
+		/// </summary>
+		[EnumTextValue("Email")]
+		[ColumnEnum("Email", typeof(System.String), System.Data.DbType.String, false, false, true, 1024)]
+		Email = 5,
+		/// <summary>
+		/// PhoneNumber : 
+		/// </summary>
+		[EnumTextValue("PhoneNumber")]
+		[ColumnEnum("PhoneNumber", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		PhoneNumber = 6
 	}//End enum
 
 	#endregion CustomerDetailsColumn Enum

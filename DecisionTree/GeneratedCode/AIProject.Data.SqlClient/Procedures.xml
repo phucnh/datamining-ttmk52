@@ -630,7 +630,9 @@
 					[CustomerId],
 					[Name],
 					[Birthday],
-					[OccupationTypeId]
+					[OccupationTypeId],
+					[Email],
+					[PhoneNumber]
 				FROM
 					[dbo].[CustomerDetails]
 					
@@ -694,7 +696,7 @@
 				EXEC sp_executesql @SQL
 
 				-- Return paged results
-				SELECT O.[CustomerId], O.[Name], O.[Birthday], O.[OccupationTypeId]
+				SELECT O.[CustomerId], O.[Name], O.[Birthday], O.[OccupationTypeId], O.[Email], O.[PhoneNumber]
 				FROM
 				    [dbo].[CustomerDetails] O,
 				    #PageIndex PageIndex
@@ -731,6 +733,8 @@
 				<parameter name="@Name" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Birthday" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault=""/>
 				<parameter name="@OccupationTypeId" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
+				<parameter name="@Email" type="nvarchar" direction="Input" size="1024" precision="0" scale="0" param="(1024)" nulldefault=""/>
+				<parameter name="@PhoneNumber" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -739,12 +743,16 @@
 					[Name]
 					,[Birthday]
 					,[OccupationTypeId]
+					,[Email]
+					,[PhoneNumber]
 					)
 				VALUES
 					(
 					@Name
 					,@Birthday
 					,@OccupationTypeId
+					,@Email
+					,@PhoneNumber
 					)
 				
 				-- Get the identity value
@@ -767,6 +775,8 @@
 				<parameter name="@Name" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Birthday" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault=""/>
 				<parameter name="@OccupationTypeId" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
+				<parameter name="@Email" type="nvarchar" direction="Input" size="1024" precision="0" scale="0" param="(1024)" nulldefault=""/>
+				<parameter name="@PhoneNumber" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -778,6 +788,8 @@
 					[Name] = @Name
 					,[Birthday] = @Birthday
 					,[OccupationTypeId] = @OccupationTypeId
+					,[Email] = @Email
+					,[PhoneNumber] = @PhoneNumber
 				WHERE
 [CustomerId] = @CustomerId 
 				
@@ -821,7 +833,9 @@
 					[CustomerId],
 					[Name],
 					[Birthday],
-					[OccupationTypeId]
+					[OccupationTypeId],
+					[Email],
+					[PhoneNumber]
 				FROM
 					[dbo].[CustomerDetails]
 				WHERE
@@ -848,7 +862,9 @@
 					[CustomerId],
 					[Name],
 					[Birthday],
-					[OccupationTypeId]
+					[OccupationTypeId],
+					[Email],
+					[PhoneNumber]
 				FROM
 					[dbo].[CustomerDetails]
 				WHERE
@@ -873,6 +889,8 @@
 				<parameter name="@Name" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@Birthday" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault="null"/>
 				<parameter name="@OccupationTypeId" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault="null"/>
+				<parameter name="@Email" type="nvarchar" direction="Input" size="1024" precision="0" scale="0" param="(1024)" nulldefault="null"/>
+				<parameter name="@PhoneNumber" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -883,6 +901,8 @@
 	, [Name]
 	, [Birthday]
 	, [OccupationTypeId]
+	, [Email]
+	, [PhoneNumber]
     FROM
 	[dbo].[CustomerDetails]
     WHERE 
@@ -890,6 +910,8 @@
 	AND ([Name] = @Name OR @Name IS NULL)
 	AND ([Birthday] = @Birthday OR @Birthday IS NULL)
 	AND ([OccupationTypeId] = @OccupationTypeId OR @OccupationTypeId IS NULL)
+	AND ([Email] = @Email OR @Email IS NULL)
+	AND ([PhoneNumber] = @PhoneNumber OR @PhoneNumber IS NULL)
 						
   END
   ELSE
@@ -899,6 +921,8 @@
 	, [Name]
 	, [Birthday]
 	, [OccupationTypeId]
+	, [Email]
+	, [PhoneNumber]
     FROM
 	[dbo].[CustomerDetails]
     WHERE 
@@ -906,6 +930,8 @@
 	OR ([Name] = @Name AND @Name is not null)
 	OR ([Birthday] = @Birthday AND @Birthday is not null)
 	OR ([OccupationTypeId] = @OccupationTypeId AND @OccupationTypeId is not null)
+	OR ([Email] = @Email AND @Email is not null)
+	OR ([PhoneNumber] = @PhoneNumber AND @PhoneNumber is not null)
 	SELECT @@ROWCOUNT			
   END
 				]]></body>
@@ -940,7 +966,7 @@
 				ORDER BY {1}
 				
 				-- Return paged results
-				SELECT O.[CustomerId], O.[Name], O.[Birthday], O.[OccupationTypeId]
+				SELECT O.[CustomerId], O.[Name], O.[Birthday], O.[OccupationTypeId], O.[Email], O.[PhoneNumber]
 				FROM
 				    [dbo].[CustomerDetails] O,
 				    #PageIndex PageIndex

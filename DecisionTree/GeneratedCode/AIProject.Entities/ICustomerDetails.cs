@@ -33,6 +33,16 @@ namespace AIProject.Entities
 		/// OccupationTypeId : 
 		/// </summary>
 		System.Int32?  OccupationTypeId  { get; set; }
+		
+		/// <summary>
+		/// Email : 
+		/// </summary>
+		System.String  Email  { get; set; }
+		
+		/// <summary>
+		/// PhoneNumber : 
+		/// </summary>
+		System.String  PhoneNumber  { get; set; }
 			
 		/// <summary>
 		/// Creates a new object that is a copy of the current instance.

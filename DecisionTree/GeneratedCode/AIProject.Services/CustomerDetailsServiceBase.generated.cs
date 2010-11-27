@@ -55,12 +55,16 @@ namespace AIProject.Services
 		///<param name="_name"></param>
 		///<param name="_birthday"></param>
 		///<param name="_occupationTypeId"></param>
-		public static CustomerDetails CreateCustomerDetails(System.String _name, System.DateTime? _birthday, System.Int32? _occupationTypeId)
+		///<param name="_email"></param>
+		///<param name="_phoneNumber"></param>
+		public static CustomerDetails CreateCustomerDetails(System.String _name, System.DateTime? _birthday, System.Int32? _occupationTypeId, System.String _email, System.String _phoneNumber)
 		{
 			CustomerDetails newEntityCustomerDetails = new CustomerDetails();
 			newEntityCustomerDetails.Name  = _name;
 			newEntityCustomerDetails.Birthday  = _birthday;
 			newEntityCustomerDetails.OccupationTypeId  = _occupationTypeId;
+			newEntityCustomerDetails.Email  = _email;
+			newEntityCustomerDetails.PhoneNumber  = _phoneNumber;
 			return newEntityCustomerDetails;
 		}
 		#endregion Constructors

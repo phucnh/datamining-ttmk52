@@ -33,9 +33,9 @@ namespace AIDT.AIDatabase
     partial void InsertClassArrangement(ClassArrangement instance);
     partial void UpdateClassArrangement(ClassArrangement instance);
     partial void DeleteClassArrangement(ClassArrangement instance);
-    partial void InsertOccupationType(OccupationType instance);
-    partial void UpdateOccupationType(OccupationType instance);
-    partial void DeleteOccupationType(OccupationType instance);
+    partial void InsertTeacherDetail(TeacherDetail instance);
+    partial void UpdateTeacherDetail(TeacherDetail instance);
+    partial void DeleteTeacherDetail(TeacherDetail instance);
     partial void InsertClassDetail(ClassDetail instance);
     partial void UpdateClassDetail(ClassDetail instance);
     partial void DeleteClassDetail(ClassDetail instance);
@@ -54,9 +54,9 @@ namespace AIDT.AIDatabase
     partial void InsertCustomerDetail(CustomerDetail instance);
     partial void UpdateCustomerDetail(CustomerDetail instance);
     partial void DeleteCustomerDetail(CustomerDetail instance);
-    partial void InsertTeacherDetail(TeacherDetail instance);
-    partial void UpdateTeacherDetail(TeacherDetail instance);
-    partial void DeleteTeacherDetail(TeacherDetail instance);
+    partial void InsertOccupationType(OccupationType instance);
+    partial void UpdateOccupationType(OccupationType instance);
+    partial void DeleteOccupationType(OccupationType instance);
     #endregion
 		
 		public EntitiesDataContext() : 
@@ -97,11 +97,11 @@ namespace AIDT.AIDatabase
 			}
 		}
 		
-		public System.Data.Linq.Table<OccupationType> OccupationTypes
+		public System.Data.Linq.Table<TeacherDetail> TeacherDetails
 		{
 			get
 			{
-				return this.GetTable<OccupationType>();
+				return this.GetTable<TeacherDetail>();
 			}
 		}
 		
@@ -153,11 +153,11 @@ namespace AIDT.AIDatabase
 			}
 		}
 		
-		public System.Data.Linq.Table<TeacherDetail> TeacherDetails
+		public System.Data.Linq.Table<OccupationType> OccupationTypes
 		{
 			get
 			{
-				return this.GetTable<TeacherDetail>();
+				return this.GetTable<OccupationType>();
 			}
 		}
 	}
@@ -354,74 +354,98 @@ namespace AIDT.AIDatabase
 		}
 	}
 	
-	[Table(Name="dbo.OccupationType")]
-	public partial class OccupationType : INotifyPropertyChanging, INotifyPropertyChanged
+	[Table(Name="dbo.TeacherDetails")]
+	public partial class TeacherDetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _OccupationTypeId;
+		private int _TeacherId;
 		
-		private string _OccupationName;
+		private string _TeacherName;
+		
+		private System.Nullable<int> _TeacherCertificate;
 		
 		private string _Note;
 		
-		private EntitySet<CustomerDetail> _CustomerDetails;
+		private EntitySet<ClassDetail> _ClassDetails;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnOccupationTypeIdChanging(int value);
-    partial void OnOccupationTypeIdChanged();
-    partial void OnOccupationNameChanging(string value);
-    partial void OnOccupationNameChanged();
+    partial void OnTeacherIdChanging(int value);
+    partial void OnTeacherIdChanged();
+    partial void OnTeacherNameChanging(string value);
+    partial void OnTeacherNameChanged();
+    partial void OnTeacherCertificateChanging(System.Nullable<int> value);
+    partial void OnTeacherCertificateChanged();
     partial void OnNoteChanging(string value);
     partial void OnNoteChanged();
     #endregion
 		
-		public OccupationType()
+		public TeacherDetail()
 		{
-			this._CustomerDetails = new EntitySet<CustomerDetail>(new Action<CustomerDetail>(this.attach_CustomerDetails), new Action<CustomerDetail>(this.detach_CustomerDetails));
+			this._ClassDetails = new EntitySet<ClassDetail>(new Action<ClassDetail>(this.attach_ClassDetails), new Action<ClassDetail>(this.detach_ClassDetails));
 			OnCreated();
 		}
 		
-		[Column(Storage="_OccupationTypeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int OccupationTypeId
+		[Column(Storage="_TeacherId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TeacherId
 		{
 			get
 			{
-				return this._OccupationTypeId;
+				return this._TeacherId;
 			}
 			set
 			{
-				if ((this._OccupationTypeId != value))
+				if ((this._TeacherId != value))
 				{
-					this.OnOccupationTypeIdChanging(value);
+					this.OnTeacherIdChanging(value);
 					this.SendPropertyChanging();
-					this._OccupationTypeId = value;
-					this.SendPropertyChanged("OccupationTypeId");
-					this.OnOccupationTypeIdChanged();
+					this._TeacherId = value;
+					this.SendPropertyChanged("TeacherId");
+					this.OnTeacherIdChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_OccupationName", DbType="NVarChar(50)")]
-		public string OccupationName
+		[Column(Storage="_TeacherName", DbType="NVarChar(50)")]
+		public string TeacherName
 		{
 			get
 			{
-				return this._OccupationName;
+				return this._TeacherName;
 			}
 			set
 			{
-				if ((this._OccupationName != value))
+				if ((this._TeacherName != value))
 				{
-					this.OnOccupationNameChanging(value);
+					this.OnTeacherNameChanging(value);
 					this.SendPropertyChanging();
-					this._OccupationName = value;
-					this.SendPropertyChanged("OccupationName");
-					this.OnOccupationNameChanged();
+					this._TeacherName = value;
+					this.SendPropertyChanged("TeacherName");
+					this.OnTeacherNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_TeacherCertificate", DbType="Int")]
+		public System.Nullable<int> TeacherCertificate
+		{
+			get
+			{
+				return this._TeacherCertificate;
+			}
+			set
+			{
+				if ((this._TeacherCertificate != value))
+				{
+					this.OnTeacherCertificateChanging(value);
+					this.SendPropertyChanging();
+					this._TeacherCertificate = value;
+					this.SendPropertyChanged("TeacherCertificate");
+					this.OnTeacherCertificateChanged();
 				}
 			}
 		}
@@ -446,16 +470,16 @@ namespace AIDT.AIDatabase
 			}
 		}
 		
-		[Association(Name="OccupationType_CustomerDetail", Storage="_CustomerDetails", ThisKey="OccupationTypeId", OtherKey="OccupationTypeId")]
-		public EntitySet<CustomerDetail> CustomerDetails
+		[Association(Name="TeacherDetail_ClassDetail", Storage="_ClassDetails", ThisKey="TeacherId", OtherKey="TeacherId")]
+		public EntitySet<ClassDetail> ClassDetails
 		{
 			get
 			{
-				return this._CustomerDetails;
+				return this._ClassDetails;
 			}
 			set
 			{
-				this._CustomerDetails.Assign(value);
+				this._ClassDetails.Assign(value);
 			}
 		}
 		
@@ -479,16 +503,16 @@ namespace AIDT.AIDatabase
 			}
 		}
 		
-		private void attach_CustomerDetails(CustomerDetail entity)
+		private void attach_ClassDetails(ClassDetail entity)
 		{
 			this.SendPropertyChanging();
-			entity.OccupationType = this;
+			entity.TeacherDetail = this;
 		}
 		
-		private void detach_CustomerDetails(CustomerDetail entity)
+		private void detach_ClassDetails(ClassDetail entity)
 		{
 			this.SendPropertyChanging();
-			entity.OccupationType = null;
+			entity.TeacherDetail = null;
 		}
 	}
 	
@@ -510,11 +534,11 @@ namespace AIDT.AIDatabase
 		
 		private EntitySet<ClassArrangement> _ClassArrangements;
 		
+		private EntityRef<TeacherDetail> _TeacherDetail;
+		
 		private EntityRef<ClassTime> _ClassTime1;
 		
 		private EntityRef<CourseDetail> _CourseDetail;
-		
-		private EntityRef<TeacherDetail> _TeacherDetail;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -535,9 +559,9 @@ namespace AIDT.AIDatabase
 		public ClassDetail()
 		{
 			this._ClassArrangements = new EntitySet<ClassArrangement>(new Action<ClassArrangement>(this.attach_ClassArrangements), new Action<ClassArrangement>(this.detach_ClassArrangements));
+			this._TeacherDetail = default(EntityRef<TeacherDetail>);
 			this._ClassTime1 = default(EntityRef<ClassTime>);
 			this._CourseDetail = default(EntityRef<CourseDetail>);
-			this._TeacherDetail = default(EntityRef<TeacherDetail>);
 			OnCreated();
 		}
 		
@@ -666,6 +690,40 @@ namespace AIDT.AIDatabase
 			}
 		}
 		
+		[Association(Name="TeacherDetail_ClassDetail", Storage="_TeacherDetail", ThisKey="TeacherId", OtherKey="TeacherId", IsForeignKey=true, DeleteRule="SET NULL")]
+		public TeacherDetail TeacherDetail
+		{
+			get
+			{
+				return this._TeacherDetail.Entity;
+			}
+			set
+			{
+				TeacherDetail previousValue = this._TeacherDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._TeacherDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TeacherDetail.Entity = null;
+						previousValue.ClassDetails.Remove(this);
+					}
+					this._TeacherDetail.Entity = value;
+					if ((value != null))
+					{
+						value.ClassDetails.Add(this);
+						this._TeacherId = value.TeacherId;
+					}
+					else
+					{
+						this._TeacherId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TeacherDetail");
+				}
+			}
+		}
+		
 		[Association(Name="ClassTime_ClassDetail", Storage="_ClassTime1", ThisKey="ClassTime", OtherKey="ClassTimeId", IsForeignKey=true)]
 		public ClassTime ClassTime1
 		{
@@ -730,40 +788,6 @@ namespace AIDT.AIDatabase
 						this._CourseId = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("CourseDetail");
-				}
-			}
-		}
-		
-		[Association(Name="TeacherDetail_ClassDetail", Storage="_TeacherDetail", ThisKey="TeacherId", OtherKey="TeacherId", IsForeignKey=true)]
-		public TeacherDetail TeacherDetail
-		{
-			get
-			{
-				return this._TeacherDetail.Entity;
-			}
-			set
-			{
-				TeacherDetail previousValue = this._TeacherDetail.Entity;
-				if (((previousValue != value) 
-							|| (this._TeacherDetail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TeacherDetail.Entity = null;
-						previousValue.ClassDetails.Remove(this);
-					}
-					this._TeacherDetail.Entity = value;
-					if ((value != null))
-					{
-						value.ClassDetails.Add(this);
-						this._TeacherId = value.TeacherId;
-					}
-					else
-					{
-						this._TeacherId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TeacherDetail");
 				}
 			}
 		}
@@ -949,6 +973,8 @@ namespace AIDT.AIDatabase
 		
 		private string _CertificateName;
 		
+		private string _Description;
+		
 		private EntitySet<CourseDetail> _CourseDetails;
 		
     #region Extensibility Method Definitions
@@ -959,6 +985,8 @@ namespace AIDT.AIDatabase
     partial void OnCertificateIdChanged();
     partial void OnCertificateNameChanging(string value);
     partial void OnCertificateNameChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
     #endregion
 		
 		public CourseCertificate()
@@ -1003,6 +1031,26 @@ namespace AIDT.AIDatabase
 					this._CertificateName = value;
 					this.SendPropertyChanged("CertificateName");
 					this.OnCertificateNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Description", DbType="NVarChar(1024)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
 				}
 			}
 		}
@@ -1473,6 +1521,10 @@ namespace AIDT.AIDatabase
 		
 		private System.Nullable<int> _OccupationTypeId;
 		
+		private string _Email;
+		
+		private string _PhoneNumber;
+		
 		private EntitySet<ClassArrangement> _ClassArrangements;
 		
 		private EntityRef<OccupationType> _OccupationType;
@@ -1489,6 +1541,10 @@ namespace AIDT.AIDatabase
     partial void OnBirthdayChanged();
     partial void OnOccupationTypeIdChanging(System.Nullable<int> value);
     partial void OnOccupationTypeIdChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPhoneNumberChanging(string value);
+    partial void OnPhoneNumberChanged();
     #endregion
 		
 		public CustomerDetail()
@@ -1582,6 +1638,46 @@ namespace AIDT.AIDatabase
 			}
 		}
 		
+		[Column(Storage="_Email", DbType="NVarChar(1024)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_PhoneNumber", DbType="NVarChar(50)")]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this.OnPhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PhoneNumber = value;
+					this.SendPropertyChanged("PhoneNumber");
+					this.OnPhoneNumberChanged();
+				}
+			}
+		}
+		
 		[Association(Name="CustomerDetail_ClassArrangement", Storage="_ClassArrangements", ThisKey="CustomerId", OtherKey="CustomerId")]
 		public EntitySet<ClassArrangement> ClassArrangements
 		{
@@ -1662,98 +1758,74 @@ namespace AIDT.AIDatabase
 		}
 	}
 	
-	[Table(Name="dbo.TeacherDetails")]
-	public partial class TeacherDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	[Table(Name="dbo.OccupationType")]
+	public partial class OccupationType : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _TeacherId;
+		private int _OccupationTypeId;
 		
-		private string _TeacherName;
-		
-		private System.Nullable<int> _TeacherCertificate;
+		private string _OccupationName;
 		
 		private string _Note;
 		
-		private EntitySet<ClassDetail> _ClassDetails;
+		private EntitySet<CustomerDetail> _CustomerDetails;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnTeacherIdChanging(int value);
-    partial void OnTeacherIdChanged();
-    partial void OnTeacherNameChanging(string value);
-    partial void OnTeacherNameChanged();
-    partial void OnTeacherCertificateChanging(System.Nullable<int> value);
-    partial void OnTeacherCertificateChanged();
+    partial void OnOccupationTypeIdChanging(int value);
+    partial void OnOccupationTypeIdChanged();
+    partial void OnOccupationNameChanging(string value);
+    partial void OnOccupationNameChanged();
     partial void OnNoteChanging(string value);
     partial void OnNoteChanged();
     #endregion
 		
-		public TeacherDetail()
+		public OccupationType()
 		{
-			this._ClassDetails = new EntitySet<ClassDetail>(new Action<ClassDetail>(this.attach_ClassDetails), new Action<ClassDetail>(this.detach_ClassDetails));
+			this._CustomerDetails = new EntitySet<CustomerDetail>(new Action<CustomerDetail>(this.attach_CustomerDetails), new Action<CustomerDetail>(this.detach_CustomerDetails));
 			OnCreated();
 		}
 		
-		[Column(Storage="_TeacherId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int TeacherId
+		[Column(Storage="_OccupationTypeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int OccupationTypeId
 		{
 			get
 			{
-				return this._TeacherId;
+				return this._OccupationTypeId;
 			}
 			set
 			{
-				if ((this._TeacherId != value))
+				if ((this._OccupationTypeId != value))
 				{
-					this.OnTeacherIdChanging(value);
+					this.OnOccupationTypeIdChanging(value);
 					this.SendPropertyChanging();
-					this._TeacherId = value;
-					this.SendPropertyChanged("TeacherId");
-					this.OnTeacherIdChanged();
+					this._OccupationTypeId = value;
+					this.SendPropertyChanged("OccupationTypeId");
+					this.OnOccupationTypeIdChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_TeacherName", DbType="NVarChar(50)")]
-		public string TeacherName
+		[Column(Storage="_OccupationName", DbType="NVarChar(50)")]
+		public string OccupationName
 		{
 			get
 			{
-				return this._TeacherName;
+				return this._OccupationName;
 			}
 			set
 			{
-				if ((this._TeacherName != value))
+				if ((this._OccupationName != value))
 				{
-					this.OnTeacherNameChanging(value);
+					this.OnOccupationNameChanging(value);
 					this.SendPropertyChanging();
-					this._TeacherName = value;
-					this.SendPropertyChanged("TeacherName");
-					this.OnTeacherNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_TeacherCertificate", DbType="Int")]
-		public System.Nullable<int> TeacherCertificate
-		{
-			get
-			{
-				return this._TeacherCertificate;
-			}
-			set
-			{
-				if ((this._TeacherCertificate != value))
-				{
-					this.OnTeacherCertificateChanging(value);
-					this.SendPropertyChanging();
-					this._TeacherCertificate = value;
-					this.SendPropertyChanged("TeacherCertificate");
-					this.OnTeacherCertificateChanged();
+					this._OccupationName = value;
+					this.SendPropertyChanged("OccupationName");
+					this.OnOccupationNameChanged();
 				}
 			}
 		}
@@ -1778,16 +1850,16 @@ namespace AIDT.AIDatabase
 			}
 		}
 		
-		[Association(Name="TeacherDetail_ClassDetail", Storage="_ClassDetails", ThisKey="TeacherId", OtherKey="TeacherId")]
-		public EntitySet<ClassDetail> ClassDetails
+		[Association(Name="OccupationType_CustomerDetail", Storage="_CustomerDetails", ThisKey="OccupationTypeId", OtherKey="OccupationTypeId")]
+		public EntitySet<CustomerDetail> CustomerDetails
 		{
 			get
 			{
-				return this._ClassDetails;
+				return this._CustomerDetails;
 			}
 			set
 			{
-				this._ClassDetails.Assign(value);
+				this._CustomerDetails.Assign(value);
 			}
 		}
 		
@@ -1811,16 +1883,16 @@ namespace AIDT.AIDatabase
 			}
 		}
 		
-		private void attach_ClassDetails(ClassDetail entity)
+		private void attach_CustomerDetails(CustomerDetail entity)
 		{
 			this.SendPropertyChanging();
-			entity.TeacherDetail = this;
+			entity.OccupationType = this;
 		}
 		
-		private void detach_ClassDetails(ClassDetail entity)
+		private void detach_CustomerDetails(CustomerDetail entity)
 		{
 			this.SendPropertyChanging();
-			entity.TeacherDetail = null;
+			entity.OccupationType = null;
 		}
 	}
 }

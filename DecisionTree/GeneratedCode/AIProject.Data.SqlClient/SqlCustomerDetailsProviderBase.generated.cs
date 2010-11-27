@@ -179,6 +179,8 @@ namespace AIProject.Data.SqlClient
 		database.AddInParameter(commandWrapper, "@Name", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Birthday", DbType.DateTime, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@OccupationTypeId", DbType.Int32, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Email", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@PhoneNumber", DbType.String, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
 			whereClause = whereClause.Replace(" AND ", "|").Replace(" OR ", "|") ; 
@@ -215,6 +217,18 @@ namespace AIProject.Data.SqlClient
 				{
 					database.SetParameterValue(commandWrapper, "@OccupationTypeId", 
 						clause.Trim().Remove(0,16).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("email ") || clause.Trim().StartsWith("email="))
+				{
+					database.SetParameterValue(commandWrapper, "@Email", 
+						clause.Trim().Remove(0,5).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("phonenumber ") || clause.Trim().StartsWith("phonenumber="))
+				{
+					database.SetParameterValue(commandWrapper, "@PhoneNumber", 
+						clause.Trim().Remove(0,11).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
 					continue;
 				}
 	
@@ -674,11 +688,17 @@ namespace AIProject.Data.SqlClient
 			col2.AllowDBNull = true;		
 			DataColumn col3 = dataTable.Columns.Add("OccupationTypeId", typeof(System.Int32));
 			col3.AllowDBNull = true;		
+			DataColumn col4 = dataTable.Columns.Add("Email", typeof(System.String));
+			col4.AllowDBNull = true;		
+			DataColumn col5 = dataTable.Columns.Add("PhoneNumber", typeof(System.String));
+			col5.AllowDBNull = true;		
 			
 			bulkCopy.ColumnMappings.Add("CustomerId", "CustomerId");
 			bulkCopy.ColumnMappings.Add("Name", "Name");
 			bulkCopy.ColumnMappings.Add("Birthday", "Birthday");
 			bulkCopy.ColumnMappings.Add("OccupationTypeId", "OccupationTypeId");
+			bulkCopy.ColumnMappings.Add("Email", "Email");
+			bulkCopy.ColumnMappings.Add("PhoneNumber", "PhoneNumber");
 			
 			foreach(AIProject.Entities.CustomerDetails entity in entities)
 			{
@@ -697,6 +717,12 @@ namespace AIProject.Data.SqlClient
 							
 				
 					row["OccupationTypeId"] = entity.OccupationTypeId.HasValue ? (object) entity.OccupationTypeId  : System.DBNull.Value;
+							
+				
+					row["Email"] = entity.Email;
+							
+				
+					row["PhoneNumber"] = entity.PhoneNumber;
 							
 				
 				dataTable.Rows.Add(row);
@@ -737,6 +763,8 @@ namespace AIProject.Data.SqlClient
 			database.AddInParameter(commandWrapper, "@Name", DbType.String, entity.Name );
 			database.AddInParameter(commandWrapper, "@Birthday", DbType.DateTime, (entity.Birthday.HasValue ? (object) entity.Birthday  : System.DBNull.Value));
 			database.AddInParameter(commandWrapper, "@OccupationTypeId", DbType.Int32, (entity.OccupationTypeId.HasValue ? (object) entity.OccupationTypeId  : System.DBNull.Value));
+			database.AddInParameter(commandWrapper, "@Email", DbType.String, entity.Email );
+			database.AddInParameter(commandWrapper, "@PhoneNumber", DbType.String, entity.PhoneNumber );
 			
 			int results = 0;
 			
@@ -789,6 +817,8 @@ namespace AIProject.Data.SqlClient
 			database.AddInParameter(commandWrapper, "@Name", DbType.String, entity.Name );
 			database.AddInParameter(commandWrapper, "@Birthday", DbType.DateTime, (entity.Birthday.HasValue ? (object) entity.Birthday : System.DBNull.Value) );
 			database.AddInParameter(commandWrapper, "@OccupationTypeId", DbType.Int32, (entity.OccupationTypeId.HasValue ? (object) entity.OccupationTypeId : System.DBNull.Value) );
+			database.AddInParameter(commandWrapper, "@Email", DbType.String, entity.Email );
+			database.AddInParameter(commandWrapper, "@PhoneNumber", DbType.String, entity.PhoneNumber );
 			
 			int results = 0;
 			
