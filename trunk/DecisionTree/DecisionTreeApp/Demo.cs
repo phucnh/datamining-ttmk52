@@ -140,20 +140,25 @@ namespace AIDT.DecisionTreeApp
 
         private void classNameTextEdit_EditValueChanged(object sender, EventArgs e)
         {
-            BindRecordToList();
+            //BindRecordToList();
         }
 
         private void classTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BindRecordToList();
+            //BindRecordToList();
         }
 
         private void courseIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BindRecordToList();
+            //BindRecordToList();
         }
 
         private void teacherIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //BindRecordToList();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             BindRecordToList();
         }

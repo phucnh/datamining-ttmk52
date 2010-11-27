@@ -29,65 +29,113 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Demo));
             System.Windows.Forms.Label classIdLabel;
             System.Windows.Forms.Label classNameLabel;
             System.Windows.Forms.Label classTimeLabel;
             System.Windows.Forms.Label courseIdLabel;
             System.Windows.Forms.Label teacherIdLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Demo));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpClassDetails = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.aIProjectDataSet = new AIDT.DecisionTreeApp.AIProjectDataSet();
+            this.classIdLabel1 = new System.Windows.Forms.Label();
             this.classDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aIProjectDataSet = new AIDT.DecisionTreeApp.AIProjectDataSet();
+            this.teacherIdComboBox = new System.Windows.Forms.ComboBox();
+            this.teacherDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.courseIdComboBox = new System.Windows.Forms.ComboBox();
+            this.courseDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.classTimeComboBox = new System.Windows.Forms.ComboBox();
+            this.classTimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classDetailsTableAdapter = new AIDT.DecisionTreeApp.AIProjectDataSetTableAdapters.ClassDetailsTableAdapter();
             this.tableAdapterManager = new AIDT.DecisionTreeApp.AIProjectDataSetTableAdapters.TableAdapterManager();
+            this.classTimeTableAdapter = new AIDT.DecisionTreeApp.AIProjectDataSetTableAdapters.ClassTimeTableAdapter();
+            this.courseDetailsTableAdapter = new AIDT.DecisionTreeApp.AIProjectDataSetTableAdapters.CourseDetailsTableAdapter();
+            this.teacherDetailsTableAdapter = new AIDT.DecisionTreeApp.AIProjectDataSetTableAdapters.TeacherDetailsTableAdapter();
             this.classDetailsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.classDetailsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.classIdLabel1 = new System.Windows.Forms.Label();
             this.classNameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.classTimeComboBox = new System.Windows.Forms.ComboBox();
-            this.courseIdComboBox = new System.Windows.Forms.ComboBox();
-            this.teacherIdComboBox = new System.Windows.Forms.ComboBox();
             this.grpCustomers = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.btnTest = new DevComponents.DotNetBar.ButtonX();
             this.grvCustomer = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.classTimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.classTimeTableAdapter = new AIDT.DecisionTreeApp.AIProjectDataSetTableAdapters.ClassTimeTableAdapter();
-            this.courseDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.courseDetailsTableAdapter = new AIDT.DecisionTreeApp.AIProjectDataSetTableAdapters.CourseDetailsTableAdapter();
-            this.teacherDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherDetailsTableAdapter = new AIDT.DecisionTreeApp.AIProjectDataSetTableAdapters.TeacherDetailsTableAdapter();
+            this.btnTest = new DevComponents.DotNetBar.ButtonX();
             this.grpExampleRecord = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.lstExampleRecord = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             classIdLabel = new System.Windows.Forms.Label();
             classNameLabel = new System.Windows.Forms.Label();
             classTimeLabel = new System.Windows.Forms.Label();
             courseIdLabel = new System.Windows.Forms.Label();
             teacherIdLabel = new System.Windows.Forms.Label();
             this.grpClassDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aIProjectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classDetailsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aIProjectDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherDetailsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseDetailsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classTimeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classDetailsBindingNavigator)).BeginInit();
             this.classDetailsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classNameTextEdit.Properties)).BeginInit();
             this.grpCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classTimeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseDetailsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherDetailsBindingSource)).BeginInit();
             this.grpExampleRecord.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // classIdLabel
+            // 
+            classIdLabel.AutoSize = true;
+            classIdLabel.Location = new System.Drawing.Point(41, 262);
+            classIdLabel.Name = "classIdLabel";
+            classIdLabel.Size = new System.Drawing.Size(47, 13);
+            classIdLabel.TabIndex = 2;
+            classIdLabel.Text = "Class Id:";
+            classIdLabel.Visible = false;
+            // 
+            // classNameLabel
+            // 
+            classNameLabel.AutoSize = true;
+            classNameLabel.Location = new System.Drawing.Point(23, 0);
+            classNameLabel.Name = "classNameLabel";
+            classNameLabel.Size = new System.Drawing.Size(66, 13);
+            classNameLabel.TabIndex = 4;
+            classNameLabel.Text = "Class Name:";
+            classNameLabel.Visible = false;
+            // 
+            // classTimeLabel
+            // 
+            classTimeLabel.AutoSize = true;
+            classTimeLabel.Location = new System.Drawing.Point(44, 32);
+            classTimeLabel.Name = "classTimeLabel";
+            classTimeLabel.Size = new System.Drawing.Size(61, 13);
+            classTimeLabel.TabIndex = 6;
+            classTimeLabel.Text = "Class Time:";
+            // 
+            // courseIdLabel
+            // 
+            courseIdLabel.AutoSize = true;
+            courseIdLabel.Location = new System.Drawing.Point(44, 83);
+            courseIdLabel.Name = "courseIdLabel";
+            courseIdLabel.Size = new System.Drawing.Size(55, 13);
+            courseIdLabel.TabIndex = 8;
+            courseIdLabel.Text = "Course Id:";
+            // 
+            // teacherIdLabel
+            // 
+            teacherIdLabel.AutoSize = true;
+            teacherIdLabel.Location = new System.Drawing.Point(44, 134);
+            teacherIdLabel.Name = "teacherIdLabel";
+            teacherIdLabel.Size = new System.Drawing.Size(62, 13);
+            teacherIdLabel.TabIndex = 10;
+            teacherIdLabel.Text = "Teacher Id:";
             // 
             // grpClassDetails
             // 
@@ -103,7 +151,7 @@
             this.grpClassDetails.Controls.Add(this.classTimeComboBox);
             this.grpClassDetails.Location = new System.Drawing.Point(12, 45);
             this.grpClassDetails.Name = "grpClassDetails";
-            this.grpClassDetails.Size = new System.Drawing.Size(312, 239);
+            this.grpClassDetails.Size = new System.Drawing.Size(283, 239);
             // 
             // 
             // 
@@ -138,15 +186,79 @@
             this.grpClassDetails.TabIndex = 0;
             this.grpClassDetails.Text = "ClassDetails";
             // 
-            // aIProjectDataSet
+            // classIdLabel1
             // 
-            this.aIProjectDataSet.DataSetName = "AIProjectDataSet";
-            this.aIProjectDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.classIdLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.classDetailsBindingSource, "ClassId", true));
+            this.classIdLabel1.Location = new System.Drawing.Point(123, 262);
+            this.classIdLabel1.Name = "classIdLabel1";
+            this.classIdLabel1.Size = new System.Drawing.Size(121, 23);
+            this.classIdLabel1.TabIndex = 3;
+            this.classIdLabel1.Text = "label1";
+            this.classIdLabel1.Visible = false;
             // 
             // classDetailsBindingSource
             // 
             this.classDetailsBindingSource.DataMember = "ClassDetails";
             this.classDetailsBindingSource.DataSource = this.aIProjectDataSet;
+            // 
+            // aIProjectDataSet
+            // 
+            this.aIProjectDataSet.DataSetName = "AIProjectDataSet";
+            this.aIProjectDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // teacherIdComboBox
+            // 
+            this.teacherIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.classDetailsBindingSource, "TeacherId", true));
+            this.teacherIdComboBox.DataSource = this.teacherDetailsBindingSource;
+            this.teacherIdComboBox.DisplayMember = "TeacherName";
+            this.teacherIdComboBox.FormattingEnabled = true;
+            this.teacherIdComboBox.Location = new System.Drawing.Point(126, 131);
+            this.teacherIdComboBox.Name = "teacherIdComboBox";
+            this.teacherIdComboBox.Size = new System.Drawing.Size(121, 21);
+            this.teacherIdComboBox.TabIndex = 11;
+            this.teacherIdComboBox.ValueMember = "TeacherId";
+            this.teacherIdComboBox.SelectedIndexChanged += new System.EventHandler(this.teacherIdComboBox_SelectedIndexChanged);
+            // 
+            // teacherDetailsBindingSource
+            // 
+            this.teacherDetailsBindingSource.DataMember = "TeacherDetails";
+            this.teacherDetailsBindingSource.DataSource = this.aIProjectDataSet;
+            // 
+            // courseIdComboBox
+            // 
+            this.courseIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.classDetailsBindingSource, "CourseId", true));
+            this.courseIdComboBox.DataSource = this.courseDetailsBindingSource;
+            this.courseIdComboBox.DisplayMember = "CourseName";
+            this.courseIdComboBox.FormattingEnabled = true;
+            this.courseIdComboBox.Location = new System.Drawing.Point(126, 80);
+            this.courseIdComboBox.Name = "courseIdComboBox";
+            this.courseIdComboBox.Size = new System.Drawing.Size(121, 21);
+            this.courseIdComboBox.TabIndex = 9;
+            this.courseIdComboBox.ValueMember = "CourseId";
+            this.courseIdComboBox.SelectedIndexChanged += new System.EventHandler(this.courseIdComboBox_SelectedIndexChanged);
+            // 
+            // courseDetailsBindingSource
+            // 
+            this.courseDetailsBindingSource.DataMember = "CourseDetails";
+            this.courseDetailsBindingSource.DataSource = this.aIProjectDataSet;
+            // 
+            // classTimeComboBox
+            // 
+            this.classTimeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.classDetailsBindingSource, "ClassTime", true));
+            this.classTimeComboBox.DataSource = this.classTimeBindingSource;
+            this.classTimeComboBox.DisplayMember = "TimeName";
+            this.classTimeComboBox.FormattingEnabled = true;
+            this.classTimeComboBox.Location = new System.Drawing.Point(126, 29);
+            this.classTimeComboBox.Name = "classTimeComboBox";
+            this.classTimeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.classTimeComboBox.TabIndex = 7;
+            this.classTimeComboBox.ValueMember = "ClassTimeId";
+            this.classTimeComboBox.SelectedIndexChanged += new System.EventHandler(this.classTimeComboBox_SelectedIndexChanged);
+            // 
+            // classTimeBindingSource
+            // 
+            this.classTimeBindingSource.DataMember = "ClassTime";
+            this.classTimeBindingSource.DataSource = this.aIProjectDataSet;
             // 
             // classDetailsTableAdapter
             // 
@@ -165,6 +277,18 @@
             this.tableAdapterManager.OccupationTypeTableAdapter = null;
             this.tableAdapterManager.TeacherDetailsTableAdapter = this.teacherDetailsTableAdapter;
             this.tableAdapterManager.UpdateOrder = AIDT.DecisionTreeApp.AIProjectDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // classTimeTableAdapter
+            // 
+            this.classTimeTableAdapter.ClearBeforeFill = true;
+            // 
+            // courseDetailsTableAdapter
+            // 
+            this.courseDetailsTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherDetailsTableAdapter
+            // 
+            this.teacherDetailsTableAdapter.ClearBeforeFill = true;
             // 
             // classDetailsBindingNavigator
             // 
@@ -196,6 +320,31 @@
             this.classDetailsBindingNavigator.TabIndex = 1;
             this.classDetailsBindingNavigator.Text = "bindingNavigator1";
             this.classDetailsBindingNavigator.Visible = false;
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -229,16 +378,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -261,26 +403,8 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // classDetailsBindingNavigatorSaveItem
             // 
@@ -292,36 +416,6 @@
             this.classDetailsBindingNavigatorSaveItem.Visible = false;
             this.classDetailsBindingNavigatorSaveItem.Click += new System.EventHandler(this.classDetailsBindingNavigatorSaveItem_Click_1);
             // 
-            // classIdLabel
-            // 
-            classIdLabel.AutoSize = true;
-            classIdLabel.Location = new System.Drawing.Point(41, 262);
-            classIdLabel.Name = "classIdLabel";
-            classIdLabel.Size = new System.Drawing.Size(47, 13);
-            classIdLabel.TabIndex = 2;
-            classIdLabel.Text = "Class Id:";
-            classIdLabel.Visible = false;
-            // 
-            // classIdLabel1
-            // 
-            this.classIdLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.classDetailsBindingSource, "ClassId", true));
-            this.classIdLabel1.Location = new System.Drawing.Point(123, 262);
-            this.classIdLabel1.Name = "classIdLabel1";
-            this.classIdLabel1.Size = new System.Drawing.Size(121, 23);
-            this.classIdLabel1.TabIndex = 3;
-            this.classIdLabel1.Text = "label1";
-            this.classIdLabel1.Visible = false;
-            // 
-            // classNameLabel
-            // 
-            classNameLabel.AutoSize = true;
-            classNameLabel.Location = new System.Drawing.Point(23, 0);
-            classNameLabel.Name = "classNameLabel";
-            classNameLabel.Size = new System.Drawing.Size(66, 13);
-            classNameLabel.TabIndex = 4;
-            classNameLabel.Text = "Class Name:";
-            classNameLabel.Visible = false;
-            // 
             // classNameTextEdit
             // 
             this.classNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.classDetailsBindingSource, "ClassName", true));
@@ -331,72 +425,6 @@
             this.classNameTextEdit.TabIndex = 5;
             this.classNameTextEdit.Visible = false;
             this.classNameTextEdit.EditValueChanged += new System.EventHandler(this.classNameTextEdit_EditValueChanged);
-            // 
-            // classTimeLabel
-            // 
-            classTimeLabel.AutoSize = true;
-            classTimeLabel.Location = new System.Drawing.Point(44, 32);
-            classTimeLabel.Name = "classTimeLabel";
-            classTimeLabel.Size = new System.Drawing.Size(61, 13);
-            classTimeLabel.TabIndex = 6;
-            classTimeLabel.Text = "Class Time:";
-            // 
-            // classTimeComboBox
-            // 
-            this.classTimeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.classDetailsBindingSource, "ClassTime", true));
-            this.classTimeComboBox.DataSource = this.classTimeBindingSource;
-            this.classTimeComboBox.DisplayMember = "TimeName";
-            this.classTimeComboBox.FormattingEnabled = true;
-            this.classTimeComboBox.Location = new System.Drawing.Point(126, 29);
-            this.classTimeComboBox.Name = "classTimeComboBox";
-            this.classTimeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.classTimeComboBox.TabIndex = 7;
-            this.classTimeComboBox.ValueMember = "ClassTimeId";
-            this.classTimeComboBox.SelectedIndexChanged += new System.EventHandler(this.classTimeComboBox_SelectedIndexChanged);
-            // 
-            // courseIdLabel
-            // 
-            courseIdLabel.AutoSize = true;
-            courseIdLabel.Location = new System.Drawing.Point(44, 83);
-            courseIdLabel.Name = "courseIdLabel";
-            courseIdLabel.Size = new System.Drawing.Size(55, 13);
-            courseIdLabel.TabIndex = 8;
-            courseIdLabel.Text = "Course Id:";
-            // 
-            // courseIdComboBox
-            // 
-            this.courseIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.classDetailsBindingSource, "CourseId", true));
-            this.courseIdComboBox.DataSource = this.courseDetailsBindingSource;
-            this.courseIdComboBox.DisplayMember = "CourseName";
-            this.courseIdComboBox.FormattingEnabled = true;
-            this.courseIdComboBox.Location = new System.Drawing.Point(126, 80);
-            this.courseIdComboBox.Name = "courseIdComboBox";
-            this.courseIdComboBox.Size = new System.Drawing.Size(121, 21);
-            this.courseIdComboBox.TabIndex = 9;
-            this.courseIdComboBox.ValueMember = "CourseId";
-            this.courseIdComboBox.SelectedIndexChanged += new System.EventHandler(this.courseIdComboBox_SelectedIndexChanged);
-            // 
-            // teacherIdLabel
-            // 
-            teacherIdLabel.AutoSize = true;
-            teacherIdLabel.Location = new System.Drawing.Point(44, 134);
-            teacherIdLabel.Name = "teacherIdLabel";
-            teacherIdLabel.Size = new System.Drawing.Size(62, 13);
-            teacherIdLabel.TabIndex = 10;
-            teacherIdLabel.Text = "Teacher Id:";
-            // 
-            // teacherIdComboBox
-            // 
-            this.teacherIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.classDetailsBindingSource, "TeacherId", true));
-            this.teacherIdComboBox.DataSource = this.teacherDetailsBindingSource;
-            this.teacherIdComboBox.DisplayMember = "TeacherName";
-            this.teacherIdComboBox.FormattingEnabled = true;
-            this.teacherIdComboBox.Location = new System.Drawing.Point(126, 131);
-            this.teacherIdComboBox.Name = "teacherIdComboBox";
-            this.teacherIdComboBox.Size = new System.Drawing.Size(121, 21);
-            this.teacherIdComboBox.TabIndex = 11;
-            this.teacherIdComboBox.ValueMember = "TeacherId";
-            this.teacherIdComboBox.SelectedIndexChanged += new System.EventHandler(this.teacherIdComboBox_SelectedIndexChanged);
             // 
             // grpCustomers
             // 
@@ -442,18 +470,6 @@
             this.grpCustomers.TabIndex = 2;
             this.grpCustomers.Text = "Customers";
             // 
-            // btnTest
-            // 
-            this.btnTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTest.Location = new System.Drawing.Point(570, 497);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(75, 23);
-            this.btnTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTest.TabIndex = 3;
-            this.btnTest.Text = "Test";
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
             // grvCustomer
             // 
             this.grvCustomer.AllowUserToAddRows = false;
@@ -468,39 +484,24 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grvCustomer.DefaultCellStyle = dataGridViewCellStyle1;
             this.grvCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grvCustomer.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.grvCustomer.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.grvCustomer.Location = new System.Drawing.Point(0, 0);
             this.grvCustomer.Name = "grvCustomer";
             this.grvCustomer.ReadOnly = true;
             this.grvCustomer.Size = new System.Drawing.Size(630, 180);
             this.grvCustomer.TabIndex = 0;
             // 
-            // classTimeBindingSource
+            // btnTest
             // 
-            this.classTimeBindingSource.DataMember = "ClassTime";
-            this.classTimeBindingSource.DataSource = this.aIProjectDataSet;
-            // 
-            // classTimeTableAdapter
-            // 
-            this.classTimeTableAdapter.ClearBeforeFill = true;
-            // 
-            // courseDetailsBindingSource
-            // 
-            this.courseDetailsBindingSource.DataMember = "CourseDetails";
-            this.courseDetailsBindingSource.DataSource = this.aIProjectDataSet;
-            // 
-            // courseDetailsTableAdapter
-            // 
-            this.courseDetailsTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherDetailsBindingSource
-            // 
-            this.teacherDetailsBindingSource.DataMember = "TeacherDetails";
-            this.teacherDetailsBindingSource.DataSource = this.aIProjectDataSet;
-            // 
-            // teacherDetailsTableAdapter
-            // 
-            this.teacherDetailsTableAdapter.ClearBeforeFill = true;
+            this.btnTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTest.Location = new System.Drawing.Point(570, 497);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTest.TabIndex = 3;
+            this.btnTest.Text = "Test";
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // grpExampleRecord
             // 
@@ -552,12 +553,23 @@
             this.lstExampleRecord.Size = new System.Drawing.Size(268, 186);
             this.lstExampleRecord.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(301, 157);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = ">>";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Demo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(663, 532);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.grpExampleRecord);
             this.Controls.Add(this.grpCustomers);
@@ -569,8 +581,11 @@
             this.Load += new System.EventHandler(this.Demo_Load);
             this.grpClassDetails.ResumeLayout(false);
             this.grpClassDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aIProjectDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classDetailsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aIProjectDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherDetailsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseDetailsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classTimeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classDetailsBindingNavigator)).EndInit();
             this.classDetailsBindingNavigator.ResumeLayout(false);
             this.classDetailsBindingNavigator.PerformLayout();
@@ -578,9 +593,6 @@
             this.grpCustomers.ResumeLayout(false);
             this.grpCustomers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classTimeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseDetailsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherDetailsBindingSource)).EndInit();
             this.grpExampleRecord.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -623,5 +635,6 @@
         private System.Windows.Forms.BindingSource teacherDetailsBindingSource;
         private DevComponents.DotNetBar.Controls.GroupPanel grpExampleRecord;
         private System.Windows.Forms.ListBox lstExampleRecord;
+        private System.Windows.Forms.Button button1;
     }
 }
