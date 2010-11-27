@@ -48,11 +48,12 @@ namespace AIDT.AIDatabase.Services
                 _dataTable.Columns.Add("GroupName");
                 _dataTable.Columns.Add("CourseFee");
                 _dataTable.Columns.Add("TimeName");
+                _dataTable.Columns.Add("TeacherName");
                 _dataTable.Columns.Add("IsStudentLearned");
 
                 foreach (var p in _data)
                 {
-                    string[] _tempStr = { p.CourseName, p.CourseCertificate, p.GroupName, p.CourseFee.ToString(), p.TimeName, p.IsStudentLearned };
+                    string[] _tempStr = { p.CourseName, p.CourseCertificate, p.GroupName, p.CourseFee.ToString(), p.TimeName,p.TeacherName, p.IsStudentLearned };
                     _dataTable.Rows.Add(_tempStr);
                 }
 
@@ -102,13 +103,14 @@ namespace AIDT.AIDatabase.Services
                 _dataTable.Columns.Add("GroupName");
                 _dataTable.Columns.Add("CourseFee");
                 _dataTable.Columns.Add("TimeName");
+                _dataTable.Columns.Add("TeacherName");
                 _dataTable.Columns.Add("IsStudentLearned");
 
                 var _randomData = _data.Take(_data.Count() / 2);
 
                 foreach (var p in _randomData)
                 {
-                    string[] _tempStr = { p.CourseName, p.CourseCertificate, p.GroupName, p.CourseFee.ToString(), p.TimeName, p.IsStudentLearned };
+                    string[] _tempStr = { p.CourseName, p.CourseCertificate, p.GroupName, p.CourseFee.ToString(), p.TimeName,p.TeacherName, p.IsStudentLearned };
                     _dataTable.Rows.Add(_tempStr);
                 }
 
@@ -116,7 +118,7 @@ namespace AIDT.AIDatabase.Services
             }
         }
 
-        public static string[] MakeRecord(ClassDetail classDetails)
+        public static DataTable MakeRecord(ClassDetail classDetails)
         {
             using (EntitiesDataContext db = new EntitiesDataContext())
             {
@@ -140,9 +142,21 @@ namespace AIDT.AIDatabase.Services
                                  classTimes.TimeName,
                                  teacherDetails.TeacherName,
                              }).Single();
+
                 string[] _returnValue = { _data.CourseName, _data.CourseCertificate, _data.GroupName,_data.CourseFee.ToString(), _data.TimeName, _data.TeacherName };
 
-                return _returnValue;
+                DataTable _dataTable = new DataTable();
+
+                _dataTable.Columns.Add("CourseName");
+                _dataTable.Columns.Add("CourseCertificate");
+                _dataTable.Columns.Add("GroupName");
+                _dataTable.Columns.Add("CourseFee");
+                _dataTable.Columns.Add("TimeName");
+                _dataTable.Columns.Add("TeacherName");
+
+                _dataTable.Rows.Add(_returnValue);
+
+                return _dataTable;
             }
         }
 

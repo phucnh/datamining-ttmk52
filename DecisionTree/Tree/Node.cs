@@ -10,7 +10,7 @@ namespace AIDT.Tree
         private string nodeName;
         private string nodeValue;
         private int[] resultValue; //Phuc add 20101108 -- De de dang kiem tra va tich hop du lieu
-        
+
         private Node parent;
         private List<Node> childs;
 
@@ -43,11 +43,16 @@ namespace AIDT.Tree
         public Node Parent
         {
             get { return parent; }
-            set 
+            set
             {
-                parent.Childs.Remove(this);
-                value.Childs.Add(this);
-                parent = value; 
+                //if ((parent != null) && (parent.Childs != null))
+                //    parent.Childs.Remove(this);
+
+                //if (value.Childs == null)
+                //    value.Childs = new List<Node>();
+
+                //value.Childs.Add(this);
+                parent = value;
             }
         }
 

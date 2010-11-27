@@ -10,6 +10,8 @@ using AIDT.Tree;
 using DevComponents.Tree;
 using AIDT.AIDatabase;
 using AIDT.AIDatabase.Services;
+using AIDT.Tree;
+using DecisionTree;
 
 namespace AIDT.DecisionTreeApp
 {
@@ -66,10 +68,40 @@ namespace AIDT.DecisionTreeApp
 
             if (MainForm.decisionTree == null) return null;
 
+            DataTable _table = BindRecordToList();
+
+            if ((_table != null) && (_table.Rows[0] != null))
+            {
+                DataRow _dataRecord = BindRecordToList().Rows[0];
+
+                AIDT.Tree.Node node = MainForm.decisionTree.DTree.Root;
+
+                while ((node.Childs != null) && 
+                    (node.Childs.Count != 0) && 
+                    (node.NodeName != MainForm.decisionTree.ResultName))
+                {
+                    node = node.Childs.Find(delegate(AIDT.Tree.Node _node)
+                    {
+                        return _node.NodeValue == node.NodeValue;
+                    });
+
+                    if ((node.ResultValue[0] > 0) || (node.ResultValue[1] == 0))
+                    {
+                        CustomerDetailsService service = new CustomerDetailsService();
+                        _customerDetailsCollection = service.GetByOccupationType(MainForm.decisionTree.ResultToString);
+                    }
+                    else if ((node.ResultValue[0] == 0) || (node.ResultValue[1] > 0))
+                    {
+                        CustomerDetailsService service = new CustomerDetailsService();
+                        _customerDetailsCollection = service.GetByNotOccupationType(MainForm.decisionTree.ResultToString);
+                    }
+                }
+            }
+
             return _customerDetailsCollection;
         }
 
-        private string[] BindRecordToList()
+        private DataTable BindRecordToList()
         {
             ClassDetail classDetails = new ClassDetail();
             classDetails.ClassName = classNameTextEdit.Text;
@@ -77,10 +109,10 @@ namespace AIDT.DecisionTreeApp
             classDetails.CourseId = Convert.ToInt32(courseIdComboBox.SelectedValue);
             classDetails.TeacherId = Convert.ToInt32(teacherIdComboBox.SelectedValue);
 
-            string[] _record = AIDataset.MakeRecord(classDetails);
-            lstExampleRecord.DataSource = _record;
+            DataTable _dataTable = AIDataset.MakeRecord(classDetails);
+            lstExampleRecord.DataSource = _dataTable.Rows[0].ItemArray;
 
-            return _record;
+            return _dataTable;
         }
 
         private void classNameTextEdit_EditValueChanged(object sender, EventArgs e)
