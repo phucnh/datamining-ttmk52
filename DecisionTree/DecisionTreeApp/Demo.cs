@@ -10,7 +10,6 @@ using AIDT.Tree;
 using DevComponents.Tree;
 using AIDT.AIDatabase;
 using AIDT.AIDatabase.Services;
-using AIDT.Tree;
 using DecisionTree;
 
 namespace AIDT.DecisionTreeApp
@@ -56,15 +55,22 @@ namespace AIDT.DecisionTreeApp
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            List<CustomerDetail> _customerDetailsCollection = GetCustomerWithDecisionTree();
+            DataTable _customerDetailsCollection = GetCustomerWithDecisionTree();
+
+            grvCustomer.SelectAll();
+            grvCustomer.ClearSelection();
 
             if (_customerDetailsCollection != null)
+            {
+                CustomerDetailsService service = new CustomerDetailsService();
+
                 grvCustomer.DataSource = _customerDetailsCollection;
+            }
         }
 
-        private List<CustomerDetail> GetCustomerWithDecisionTree()
+        private DataTable GetCustomerWithDecisionTree()
         {
-            List<CustomerDetail> _customerDetailsCollection = new List<CustomerDetail>();
+            DataTable _customerDetailsCollection = new DataTable();
 
             if (MainForm.decisionTree == null) return null;
 
@@ -76,25 +82,42 @@ namespace AIDT.DecisionTreeApp
 
                 AIDT.Tree.Node node = MainForm.decisionTree.DTree.Root;
 
-                while ((node.Childs != null) && 
-                    (node.Childs.Count != 0) && 
+                while ((node != null) &&
+                    (node.Childs != null) &&
+                    (node.Childs.Count != 0) &&
                     (node.NodeName != MainForm.decisionTree.ResultName))
                 {
+                    //var test = (from t in node.Childs where t.NodeValue == _dataRecord[node.NodeName] select t).Single();
                     node = node.Childs.Find(delegate(AIDT.Tree.Node _node)
                     {
-                        return _node.NodeValue == node.NodeValue;
+                        return _node.NodeValue == _dataRecord[node.NodeName].ToString();
                     });
 
-                    if ((node.ResultValue[0] > 0) || (node.ResultValue[1] == 0))
-                    {
-                        CustomerDetailsService service = new CustomerDetailsService();
-                        _customerDetailsCollection = service.GetByOccupationType(MainForm.decisionTree.ResultToString);
-                    }
-                    else if ((node.ResultValue[0] == 0) || (node.ResultValue[1] > 0))
-                    {
-                        CustomerDetailsService service = new CustomerDetailsService();
-                        _customerDetailsCollection = service.GetByNotOccupationType(MainForm.decisionTree.ResultToString);
-                    }
+                    if (node == null) continue;
+                }
+
+                if (node == null) return _customerDetailsCollection;
+
+                //My policy
+                if (node.ResultValue[0] + node.ResultValue[1] < 5)
+                    return _customerDetailsCollection;
+                //end my policy
+
+                if ((node.ResultValue[0] > 0) || (node.ResultValue[1] == 0))
+                {
+                    CustomerDetailsService service = new CustomerDetailsService();
+                    _customerDetailsCollection = service.GetByOccupationType("Sinh viên");
+                }
+                else if ((node.ResultValue[0] == 0) || (node.ResultValue[1] > 0))
+                {
+                    CustomerDetailsService service = new CustomerDetailsService();
+                    _customerDetailsCollection = service.GetByNotOccupationType("Sinh viên");
+                }
+                else
+                {
+                    CustomerDetailsService service = new CustomerDetailsService();
+                    _customerDetailsCollection = service.GetByOccupationType("Sinh viên");
+                    _customerDetailsCollection.Rows.Add(service.GetByNotOccupationType("SinhViên").Rows);
                 }
             }
 

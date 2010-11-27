@@ -37,14 +37,19 @@ namespace AIDT.DecisionTreeApp
 
             frmDecisionTree _frm = new frmDecisionTree();
 
-            _frm.ShowDialog();
+            _frm.Show();
         }
 
         private void buttonItem2_Click(object sender, EventArgs e)
         {
+            decisionTree = new DecisionTree.ID3DecisionTree();
+            decisionTree.ResultName = "IsStudentLearned";
+            decisionTree.ResultToString = "True";
+            decisionTree.GetTreeWithID3(_fullDataset);
+
             Demo frm = new Demo();
 
-            frm.ShowDialog();
+            frm.Show();
         }
     }
 }
