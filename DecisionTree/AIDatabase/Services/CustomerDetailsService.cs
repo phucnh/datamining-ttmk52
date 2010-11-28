@@ -19,7 +19,9 @@ namespace AIDT.AIDatabase.Services
                                                   t.CustomerId,
                                                   t.Name,
                                                   t.Birthday,
-                                                  t.OccupationType.OccupationName,
+                                                  t.Email,
+                                                  t.PhoneNumber,
+                                                  t.OccupationType.OccupationName
                                               });
 
                 DataTable _dataTable = new DataTable();
@@ -27,11 +29,13 @@ namespace AIDT.AIDatabase.Services
                 _dataTable.Columns.Add("CustomerId");
                 _dataTable.Columns.Add("Name");
                 _dataTable.Columns.Add("Birthday");
+                _dataTable.Columns.Add("Email");
+                _dataTable.Columns.Add("PhoneNumber");
                 _dataTable.Columns.Add("OccupationName");
 
                 foreach (var p in _customerDetailsCollection)
                 {
-                    string[] _tempStr = { p.CustomerId.ToString(), p.Name,p.Birthday.ToString(), p.OccupationName };
+                    string[] _tempStr = { p.CustomerId.ToString(), p.Name,p.Birthday.ToString(),p.Email,p.PhoneNumber, p.OccupationName };
                     _dataTable.Rows.Add(_tempStr);
                 }
 
@@ -64,7 +68,9 @@ namespace AIDT.AIDatabase.Services
                                                       t.CustomerId,
                                                       t.Name,
                                                       t.Birthday,
-                                                      t.OccupationType.OccupationName,
+                                                      t.Email,
+                                                      t.PhoneNumber,
+                                                      t.OccupationType.OccupationName
                                                   });
 
                 DataTable _dataTable = new DataTable();
@@ -72,11 +78,13 @@ namespace AIDT.AIDatabase.Services
                 _dataTable.Columns.Add("CustomerId");
                 _dataTable.Columns.Add("Name");
                 _dataTable.Columns.Add("Birthday");
+                _dataTable.Columns.Add("Email");
+                _dataTable.Columns.Add("PhoneNumber");
                 _dataTable.Columns.Add("OccupationName");
 
                 foreach (var p in _customerDetailsCollection)
                 {
-                    string[] _tempStr = { p.CustomerId.ToString(), p.Name,p.Birthday.ToString(), p.OccupationName };
+                    string[] _tempStr = { p.CustomerId.ToString(), p.Name, p.Birthday.ToString(), p.Email, p.PhoneNumber, p.OccupationName };
                     _dataTable.Rows.Add(_tempStr);
                 }
 

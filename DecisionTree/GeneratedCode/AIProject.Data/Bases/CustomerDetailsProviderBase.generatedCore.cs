@@ -308,6 +308,8 @@ namespace AIProject.Data.Bases
 					c.Name = (reader.IsDBNull(((int)CustomerDetailsColumn.Name - 1)))?null:(System.String)reader[((int)CustomerDetailsColumn.Name - 1)];
 					c.Birthday = (reader.IsDBNull(((int)CustomerDetailsColumn.Birthday - 1)))?null:(System.DateTime?)reader[((int)CustomerDetailsColumn.Birthday - 1)];
 					c.OccupationTypeId = (reader.IsDBNull(((int)CustomerDetailsColumn.OccupationTypeId - 1)))?null:(System.Int32?)reader[((int)CustomerDetailsColumn.OccupationTypeId - 1)];
+					c.Email = (reader.IsDBNull(((int)CustomerDetailsColumn.Email - 1)))?null:(System.String)reader[((int)CustomerDetailsColumn.Email - 1)];
+					c.PhoneNumber = (reader.IsDBNull(((int)CustomerDetailsColumn.PhoneNumber - 1)))?null:(System.String)reader[((int)CustomerDetailsColumn.PhoneNumber - 1)];
 					c.EntityTrackingKey = key;
 					c.AcceptChanges();
 					c.SuppressEntityEvents = false;
@@ -329,6 +331,8 @@ namespace AIProject.Data.Bases
 			entity.Name = (reader.IsDBNull(((int)CustomerDetailsColumn.Name - 1)))?null:(System.String)reader[((int)CustomerDetailsColumn.Name - 1)];
 			entity.Birthday = (reader.IsDBNull(((int)CustomerDetailsColumn.Birthday - 1)))?null:(System.DateTime?)reader[((int)CustomerDetailsColumn.Birthday - 1)];
 			entity.OccupationTypeId = (reader.IsDBNull(((int)CustomerDetailsColumn.OccupationTypeId - 1)))?null:(System.Int32?)reader[((int)CustomerDetailsColumn.OccupationTypeId - 1)];
+			entity.Email = (reader.IsDBNull(((int)CustomerDetailsColumn.Email - 1)))?null:(System.String)reader[((int)CustomerDetailsColumn.Email - 1)];
+			entity.PhoneNumber = (reader.IsDBNull(((int)CustomerDetailsColumn.PhoneNumber - 1)))?null:(System.String)reader[((int)CustomerDetailsColumn.PhoneNumber - 1)];
 			entity.AcceptChanges();
 		}
 		
@@ -345,6 +349,8 @@ namespace AIProject.Data.Bases
 			entity.Name = Convert.IsDBNull(dataRow["Name"]) ? null : (System.String)dataRow["Name"];
 			entity.Birthday = Convert.IsDBNull(dataRow["Birthday"]) ? null : (System.DateTime?)dataRow["Birthday"];
 			entity.OccupationTypeId = Convert.IsDBNull(dataRow["OccupationTypeId"]) ? null : (System.Int32?)dataRow["OccupationTypeId"];
+			entity.Email = Convert.IsDBNull(dataRow["Email"]) ? null : (System.String)dataRow["Email"];
+			entity.PhoneNumber = Convert.IsDBNull(dataRow["PhoneNumber"]) ? null : (System.String)dataRow["PhoneNumber"];
 			entity.AcceptChanges();
 		}
 		#endregion 

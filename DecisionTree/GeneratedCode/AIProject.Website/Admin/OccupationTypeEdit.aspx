@@ -51,6 +51,8 @@
 				<asp:BoundField DataField="Name" HeaderText="Name" SortExpression="[Name]" />				
 				<asp:BoundField DataField="Birthday" HeaderText="Birthday" SortExpression="[Birthday]" />				
 				<data:HyperLinkField HeaderText="Occupation Type Id" DataNavigateUrlFormatString="OccupationTypeEdit.aspx?OccupationTypeId={0}" DataNavigateUrlFields="OccupationTypeId" DataContainer="OccupationTypeIdSource" DataTextField="OccupationName" />
+				<asp:BoundField DataField="Email" HeaderText="Email" SortExpression="[Email]" />				
+				<asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="[PhoneNumber]" />				
 			</Columns>
 			<EmptyDataTemplate>
 				<b>No Customer Details Found! </b>
