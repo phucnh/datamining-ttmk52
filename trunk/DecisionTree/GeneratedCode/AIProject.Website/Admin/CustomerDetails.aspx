@@ -17,6 +17,8 @@
 			>
 			<Columns>
 				<asp:CommandField ShowSelectButton="True" ShowEditButton="True" />				
+				<asp:BoundField DataField="Email" HeaderText="Email" SortExpression="[Email]"  />
+				<asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="[PhoneNumber]"  />
 				<asp:BoundField DataField="Name" HeaderText="Name" SortExpression="[Name]"  />
 				<asp:BoundField DataField="Birthday" DataFormatString="{0:d}" HtmlEncode="False" HeaderText="Birthday" SortExpression="[Birthday]"  />
 				<data:HyperLinkField HeaderText="Occupation Type Id" DataNavigateUrlFormatString="OccupationTypeEdit.aspx?OccupationTypeId={0}" DataNavigateUrlFields="OccupationTypeId" DataContainer="OccupationTypeIdSource" DataTextField="OccupationName" />

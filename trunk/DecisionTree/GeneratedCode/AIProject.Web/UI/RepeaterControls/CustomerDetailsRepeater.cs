@@ -367,6 +367,24 @@ namespace AIProject.Web.UI
 		{
 			get { return _entity.OccupationTypeId; }
 		}
+        /// <summary>
+        /// Gets the Email
+        /// </summary>
+        /// <value>The Email.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Email
+		{
+			get { return _entity.Email; }
+		}
+        /// <summary>
+        /// Gets the PhoneNumber
+        /// </summary>
+        /// <value>The PhoneNumber.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String PhoneNumber
+		{
+			get { return _entity.PhoneNumber; }
+		}
 
         /// <summary>
         /// Gets a <see cref="T:AIProject.Entities.CustomerDetails"></see> object
