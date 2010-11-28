@@ -52,14 +52,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AIProject.Website", "Genera
 		VWDPort = "2005"
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{2294FAEE-F63D-45C7-BC1F-AF943CC34C8A}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DecisionTreeAppSetup", "DecisionTreeAppSetup\DecisionTreeAppSetup.vdproj", "{8B0990E5-3A7A-4C9F-8BAC-F922DA2088F2}"
-EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = DecisionTree.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		GenerateDebug|Any CPU = GenerateDebug|Any CPU
@@ -138,9 +131,6 @@ Global
 		{46855046-CDA2-4270-AA8E-0B11EDB9A5C9}.GenerateDebug|Any CPU.Build.0 = Debug|Any CPU
 		{46855046-CDA2-4270-AA8E-0B11EDB9A5C9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{46855046-CDA2-4270-AA8E-0B11EDB9A5C9}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{8B0990E5-3A7A-4C9F-8BAC-F922DA2088F2}.Debug|Any CPU.ActiveCfg = Debug
-		{8B0990E5-3A7A-4C9F-8BAC-F922DA2088F2}.GenerateDebug|Any CPU.ActiveCfg = Debug
-		{8B0990E5-3A7A-4C9F-8BAC-F922DA2088F2}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,6 +143,5 @@ Global
 		{794327CE-DC0A-4381-89EE-4C00AFB08D5A} = {46419980-E150-42E1-A0C1-E7F17331DE45}
 		{47FE3BE8-3E46-47CA-8494-473755867DD0} = {46419980-E150-42E1-A0C1-E7F17331DE45}
 		{46855046-CDA2-4270-AA8E-0B11EDB9A5C9} = {46419980-E150-42E1-A0C1-E7F17331DE45}
-		{8B0990E5-3A7A-4C9F-8BAC-F922DA2088F2} = {2294FAEE-F63D-45C7-BC1F-AF943CC34C8A}
 	EndGlobalSection
 EndGlobal
